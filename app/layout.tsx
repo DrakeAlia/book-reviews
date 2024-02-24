@@ -6,9 +6,9 @@ import { siteConfig } from "./config/site";
 import { fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { Analytics } from "@/components/ui/analytics";
-import { ThemeProvider } from "@/components/theme.provider";
-import { SiteFooter } from "@/components/ui/site-footer";
-import { SiteHeader } from "@/components/ui/site-header";
+import { ThemeProvider } from "@/components/theme-provider";
+import { SiteFooter } from "@/components/footer";
+import { SiteHeader } from "@/components/header";
 import { ThemeSwitcher } from "@/components/ui/theme-switcher";
 import { Toaster as DefaultToaster } from "@/components/ui/toaster";
 import { Toaster as NewYorkSonner } from "@/components/ui/sonner";
@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
   },
+  metadataBase: new URL(siteConfig.url),
   description: siteConfig.description,
   keywords: [
     "Next.js",
@@ -37,15 +38,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
+    url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
-
+    // images: [
+    // ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
+    // images: [siteConfig.ogImage],
     creator: "@shadcn",
   },
   icons: {
@@ -53,6 +57,7 @@ export const metadata: Metadata = {
     shortcut: "/public/favicon-16x16.png",
     apple: "/public/apple-touch-icon.png",
   },
+  manifest: `${siteConfig.url}/site.webmanifest`,
 };
 
 export const viewport: Viewport = {

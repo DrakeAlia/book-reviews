@@ -4,17 +4,25 @@ import { siteConfig } from "@/app/config/site";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/ui/icons";
 import { MainNav } from "@/components/ui/main-nav";
-import { ModeToggle } from "./mode-toggle";
+import { MobileNav } from "@/components/ui/mobile-nav";
+import { ModeToggle } from "./ui/mode-toggle";
 import { buttonVariants } from "@/components/ui/button";
+import { UserAuthForm } from "@/app/authentication/user-form";
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <MainNav />
+        <MobileNav />
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-          <div className="w-full flex-1 md:w-auto md:flex-none">
-          </div>
+          <div className="w-full flex-1 md:w-auto md:flex-none"></div>
+          <Link href="/authentication" className={cn(buttonVariants())}>
+            Sign In
+          </Link>
+          <button className={cn(buttonVariants({ variant: "outline" }))}>
+            Sign Up
+          </button>
           <nav className="flex items-center">
             <Link
               href={siteConfig.links.github}
