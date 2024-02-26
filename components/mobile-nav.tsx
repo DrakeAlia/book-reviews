@@ -3,19 +3,13 @@
 import * as React from "react";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/navigation";
-import { ViewVerticalIcon } from "@radix-ui/react-icons";
-
-import { docsConfig } from "@/app/config/docs";
-import { siteConfig } from "@/app/config/site";
+import { docsConfig } from "@/config/docs";
+import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/ui/icons";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export function MobileNav() {
   const [open, setOpen] = React.useState(false);

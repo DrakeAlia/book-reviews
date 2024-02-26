@@ -6,7 +6,10 @@ import { cn } from "@/lib/utils";
 import { Icons } from "@/components/ui/icons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label"; 
+import { Label } from "@/components/ui/label";
+import Link from "next/link";
+import { siteConfig } from "@/config/site";
+import { buttonVariants } from "@/components/ui/button";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -58,14 +61,15 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           </span>
         </div>
       </div>
-      <Button variant="outline" type="button" disabled={isLoading}>
-        {isLoading ? (
-          <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
-        ) : (
-          <Icons.gitHub className="mr-2 h-4 w-4" />
-        )}{" "}
+      <Link
+        target="_blank"
+        rel="noreferrer"
+        href={siteConfig.links.github}
+        className={cn(buttonVariants({ variant: "outline" }))}
+      >
+        <Icons.gitHub className="mr-2 h-4 w-4" />
         GitHub
-      </Button>
+      </Link>
     </div>
   );
 }

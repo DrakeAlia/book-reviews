@@ -1,20 +1,18 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import { UserAuthForm } from "./user-form";
 
 export const metadata: Metadata = {
   title: "Authentication",
-  description: "Authentication forms built using the components.",
+  description: "Authentication",
 };
 
 export default function AuthenticationPage() {
   return (
     <>
-      <div className="container relative p-8 lg:p-8">
+      <div className="container relative p-24">
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <div className="flex flex-col space-y-2 text-center">
             <h1 className="text-2xl font-semibold tracking-tight">

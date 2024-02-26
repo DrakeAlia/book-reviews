@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "DrakeAlia/ReadRealm",
+  name: "ReadRealm",
   url: "http://www.github.com/DrakeAlia/book-reviews",
   description:
     "Write a review or rate a book.",

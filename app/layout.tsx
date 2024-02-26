@@ -1,14 +1,14 @@
-import "@/app/styles/globals.css";
+import "@/styles/globals.css";
 
 import { Metadata, Viewport } from "next";
 
-import { siteConfig } from "./config/site";
+import { siteConfig } from "../config/site";
 import { fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { Analytics } from "@/components/ui/analytics";
 import { ThemeProvider } from "@/components/theme-provider";
-import { SiteFooter } from "@/components/footer";
-import { SiteHeader } from "@/components/header";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 import { ThemeSwitcher } from "@/components/ui/theme-switcher";
 import { Toaster as DefaultToaster } from "@/components/ui/toaster";
 import { Toaster as NewYorkSonner } from "@/components/ui/sonner";

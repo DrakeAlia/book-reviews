@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { siteConfig } from "@/app/config/site";
+import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/ui/icons";
 import { Badge } from "@/components/ui/badge";
@@ -29,8 +29,8 @@ export function MainNav() {
           )}
         >
           Docs
-        </Link> */}
-        {/* <Link
+        </Link>
+        <Link
           href="/docs/components"
           className={cn(
             "transition-colors hover:text-foreground/80",
@@ -40,8 +40,8 @@ export function MainNav() {
           )}
         >
           Components
-        </Link> */}
-        {/* <Link
+        </Link>
+        <Link
           href="/themes"
           className={cn(
             "transition-colors hover:text-foreground/80",
@@ -51,8 +51,8 @@ export function MainNav() {
           )}
         >
           Themes
-        </Link> */}
-        {/* <Link
+        </Link>
+        <Link
           href="/examples"
           className={cn(
             "transition-colors hover:text-foreground/80",
@@ -62,8 +62,8 @@ export function MainNav() {
           )}
         >
           Examples
-        </Link> */}
-        {/* <Link
+        </Link>
+        <Link
           href={siteConfig.links.github}
           className={cn(
             "hidden text-foreground/60 transition-colors hover:text-foreground/80 lg:block"
