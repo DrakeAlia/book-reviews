@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { Icons } from "@/components/ui/icons";
 import { MainNav } from "@/components/main-nav";
 import { MobileNav } from "@/components/mobile-nav";
-import { ModeToggle } from "./ui/mode-toggle";
+import { ModeToggle } from "./mode-toggle";
 import { siteConfig } from "@/config/site";
 import { CommandMenu } from "./command-menu";
 import { buttonVariants } from "@/components/ui/button";
