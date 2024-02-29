@@ -20,10 +20,10 @@ export const docsConfig: DocsConfig = {
     },
   ],
   sidebarNav: [
-    {
-      title: "Pages",
-      items: [
-      ],
-    },
+    // {
+    //   title: "Pages",
+    //   items: [
+    //   ],
+    // },
   ],
 };

@@ -5,7 +5,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useFieldArray, useForm } from "react-hook-form";
 import * as z from "zod";
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -26,40 +25,48 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/react-hook-form/form";
+import { Ratings } from "./rating";
 
 const profileFormSchema = z.object({
-  username: z
+  title: z
     .string()
     .min(2, {
-      message: "Username must be at least 2 characters.",
+      message: "Book's title must be at least 2 characters.",
     })
     .max(30, {
-      message: "Username must not be longer than 30 characters.",
+      message: "Book's title must not be longer than 30 characters.",
     }),
-  email: z
-    .string({
-      required_error: "Please select an email to display.",
+  author: z
+    .string()
+    .min(2, {
+      message: "Author must be at least 2 characters.",
     })
-    .email(),
-  bio: z.string().max(160).min(4),
-  urls: z
-    .array(
-      z.object({
-        value: z.string().url({ message: "Please enter a valid URL." }),
-      })
-    )
-    .optional(),
+    .max(30, {
+      message: "Author name must not be longer than 30 characters.",
+    }),
+  genre: z
+    .string({
+      required_error: "Please select an genre to display.",
+    })
+    .min(2, {
+      message: "Genre must be at least 2 characters.",
+    })
+    .max(30, {
+      message: "You must select a genre",
+    }),
+  review: z.string().max(160).min(4),
+  rating: z.number().int().min(1).max(5),
 });
 
 type ProfileFormValues = z.infer<typeof profileFormSchema>;
 
 // This can come from your database or API.
 const defaultValues: Partial<ProfileFormValues> = {
-//   bio: "I own a computer.",
-//   urls: [
-//     { value: "https://shadcn.com" },
-//     { value: "http://twitter.com/shadcn" },
-//   ],
+  //   bio: "I own a computer.",
+  //   urls: [
+  //     { value: "https://shadcn.com" },
+  //     { value: "http://twitter.com/shadcn" },
+  //   ],
 };
 
 export function ReviewForm() {
@@ -69,10 +76,10 @@ export function ReviewForm() {
     mode: "onChange",
   });
 
-  const { fields, append } = useFieldArray({
-    name: "urls",
-    control: form.control,
-  });
+  // const { fields, append } = useFieldArray({
+  //   name: "urls",
+  //   control: form.control,
+  // });
 
   function onSubmit(data: ProfileFormValues) {
     toast({
@@ -87,19 +94,18 @@ export function ReviewForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-9">
         <FormField
           control={form.control}
-          name="username"
+          name="title"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Book Title</FormLabel>
+              <FormLabel>Book&apos;s Title</FormLabel>
               <FormControl>
-                <Input placeholder="Name" {...field} />
+                <Input placeholder="Name of the book" {...field} />
               </FormControl>
               <FormDescription>
-                This is your public display name. It can be your real name or a
-                pseudonym. You can only change this once every 30 days.
+                This is the name of the book you are reviewing.
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -107,84 +113,86 @@ export function ReviewForm() {
         />
         <FormField
           control={form.control}
-          name="email"
+          name="author"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>Book&apos;s Author</FormLabel>
+              <FormControl>
+                <Input placeholder="Author's name" {...field} />
+              </FormControl>
+              <FormDescription>
+                This is the name of the author of the book you are reviewing.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="genre"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Genre</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a verified email to display" />
+                    <SelectValue placeholder="Select the book's genre" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="m@example.com">m@example.com</SelectItem>
-                  <SelectItem value="m@google.com">m@google.com</SelectItem>
-                  <SelectItem value="m@support.com">m@support.com</SelectItem>
+                  <SelectItem value="fiction">Fiction</SelectItem>
+                  <SelectItem value="science-fiction">
+                    Science Fiction
+                  </SelectItem>
+                  <SelectItem value="nonfiction">Non-Fiction</SelectItem>
+                  <SelectItem value="fantasy">Fantasy</SelectItem>
+                  <SelectItem value="horror">Horror</SelectItem>
+                  <SelectItem value="mystery">Mystery</SelectItem>
+                  <SelectItem value="thriller">Thriller</SelectItem>
+                  <SelectItem value="romance">Romance</SelectItem>
+                  <SelectItem value="poetry">Poetry</SelectItem>
+                  <SelectItem value="biography">Biography</SelectItem>
+                  <SelectItem value="autobiography">Autobiography</SelectItem>
+                  <SelectItem value="history">History</SelectItem>
+                  <SelectItem value="science">Science</SelectItem>
+                  <SelectItem value="novel">Novel</SelectItem>
                 </SelectContent>
               </Select>
-              <FormDescription>
-                You can manage verified email addresses in your{" "}
-                <Link href="/examples/forms">email settings</Link>.
-              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
         <FormField
           control={form.control}
-          name="bio"
+          name="review"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Review</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Tell us a little bit about yourself"
+                  placeholder="Write a review of the book here."
                   className="resize-none"
                   {...field}
                 />
               </FormControl>
-              <FormDescription>
-                You can <span>@mention</span> other users and organizations to
-                link to them.
-              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        <div>
-          {fields.map((field, index) => (
-            <FormField
-              control={form.control}
-              key={field.id}
-              name={`urls.${index}.value`}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className={cn(index !== 0 && "sr-only")}>
-                    URLs
-                  </FormLabel>
-                  <FormDescription className={cn(index !== 0 && "sr-only")}>
-                    Add links to your website, blog, or social media profiles.
-                  </FormDescription>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          ))}
-          <Button
-            type="button"
-            variant="link"
-            size="sm"
-            className="mt-1"
-            onClick={() => append({ value: "" })}
-          >
-            Add URL
-          </Button>
-        </div>
-        <Button type="submit">Update profile</Button>
+        <FormField
+          control={form.control}
+          name="rating"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Rating</FormLabel>
+              <FormControl>
+                <Ratings rating={3} variant="yellow" totalStars={5} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Submit Review</Button>
       </form>
     </Form>
   );
