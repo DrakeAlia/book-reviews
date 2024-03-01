@@ -14,11 +14,10 @@ export default function HomePage() {
   return (
     <div className="container relative p-16">
       <PageHeader>
-        <PageHeaderHeading>BookRealm</PageHeaderHeading>
+        <PageHeaderHeading>BookBlend</PageHeaderHeading>
         <PageHeaderDescription>
-          BookRealm is your gateway to a universe of books. Discover new
-          stories, share your insights through reviews, and curate your personal
-          booklist.
+          Welcome to BookBlend, where you can write a review and rate a books
+          that you have read. Sign in or sign up to get started
         </PageHeaderDescription>
         <PageActions>
           <Link href="/sign-in" className={cn(buttonVariants())}>

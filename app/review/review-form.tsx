@@ -1,9 +1,8 @@
 "use client";
 
-import Link from "next/link";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useFieldArray, useForm } from "react-hook-form";
 import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -49,7 +48,7 @@ const profileFormSchema = z.object({
       required_error: "Please select an genre to display.",
     })
     .min(2, {
-      message: "Genre must be at least 2 characters.",
+      message: "You must select a genre",
     })
     .max(30, {
       message: "You must select a genre",
@@ -61,13 +60,13 @@ const profileFormSchema = z.object({
 type ProfileFormValues = z.infer<typeof profileFormSchema>;
 
 // This can come from your database or API.
-const defaultValues: Partial<ProfileFormValues> = {
-  //   bio: "I own a computer.",
-  //   urls: [
-  //     { value: "https://shadcn.com" },
-  //     { value: "http://twitter.com/shadcn" },
-  //   ],
-};
+// const defaultValues: Partial<ProfileFormValues> = {
+//   bio: "I own a computer.",
+//   urls: [
+//     { value: "https://shadcn.com" },
+//     { value: "http://twitter.com/shadcn" },
+//   ],
+// };
 
 export function ReviewForm() {
   const form = useForm<ProfileFormValues>({
