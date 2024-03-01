@@ -61,15 +61,21 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           </span>
         </div>
       </div>
-      <Link
-        target="_blank"
-        rel="noreferrer"
-        href={siteConfig.links.github}
-        className={cn(buttonVariants({ variant: "outline" }))}
-      >
-        <Icons.gitHub className="mr-2 h-4 w-4" />
-        GitHub
-      </Link>
+      <div className="grid grid-cols-2 gap-3">
+        <Button variant="outline">
+          <Icons.google className="mr-2 h-4 w-4" />
+          Google
+        </Button>
+        <Link
+          target="_blank"
+          rel="noreferrer"
+          href={siteConfig.links.github}
+          className={cn(buttonVariants({ variant: "outline" }))}
+        >
+          <Icons.gitHub className="mr-2 h-4 w-4" />
+          GitHub
+        </Link>
+      </div>
     </div>
   );
 }

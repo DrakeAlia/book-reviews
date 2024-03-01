@@ -20,7 +20,7 @@ export function CreateAccount() {
       <CardHeader className="space-y-1">
         <CardTitle className="text-2xl">Create an account</CardTitle>
         <CardDescription>
-          Enter your email below to create your account
+          Enter your email and password to create an account.
         </CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4">

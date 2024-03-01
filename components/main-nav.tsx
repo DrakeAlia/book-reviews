@@ -29,14 +29,14 @@ export function MainNav() {
         </span>
       </Link>
       <nav className="flex items-center gap-6 text-sm">
-        {/* <Link
-          href="/docs"
+        <Link
+          href="/review"
           className={cn(
             "transition-colors hover:text-foreground/80",
-            pathname === "/docs" ? "text-foreground" : "text-foreground/60"
+            pathname === "/review" ? "text-foreground" : "text-foreground/60"
           )}
         >
-          Docs
+          Review
         </Link>
         <Link
           href="/docs/components"
@@ -78,7 +78,7 @@ export function MainNav() {
           )}
         >
           GitHub
-        </Link> */}
+        </Link>
       </nav>
     </div>
   );
