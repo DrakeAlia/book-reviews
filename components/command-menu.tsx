@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { DialogProps } from "@radix-ui/react-alert-dialog";
 import {
   CircleIcon,
-  FileIcon,
   LaptopIcon,
   MoonIcon,
   SunIcon,
