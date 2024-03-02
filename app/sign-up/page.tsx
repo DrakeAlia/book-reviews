@@ -1,4 +1,3 @@
-
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 
@@ -38,32 +37,3 @@ export default function SignUpPage() {
     </>
   );
 }
-
-// import { Metadata } from "next";
-
-// import { cn } from "@/lib/utils";
-
-// import { CreateAccount } from "./components/create-account";
-
-// export const metadata: Metadata = {
-//   title: "Cards",
-//   description: "Examples of cards built using the components.",
-// };
-
-// export default function CardsPage() {
-//   return (
-//     <>
-//       <div className="hidden items-start justify-center gap-6 rounded-lg p-8 md:grid lg:grid-cols-2 xl:grid-cols-3">
-//         <div className="col-span-2 grid items-start gap-6 lg:col-span-1">
-//           <Container>
-//             <CreateAccount />
-//           </Container>
-//         </div>
-//         <div className="col-span-2 grid items-start gap-6 lg:col-span-1">
-//         </div>
-//         <div className="col-span-2 grid items-start gap-6 lg:col-span-2 lg:grid-cols-2 xl:col-span-1 xl:grid-cols-1">
-//         </div>
-//       </div>
-//     </>
-//   );
-// }

@@ -38,6 +38,15 @@ export function MainNav() {
         >
           Review
         </Link>
+        <Link
+          href="/bookshelf"
+          className={cn(
+            "transition-colors hover:text-foreground/80",
+            pathname === "/bookshelf" ? "text-foreground" : "text-foreground/60"
+          )}
+        >
+          Bookshelf
+        </Link>
       </nav>
     </div>
   );
