@@ -21,12 +21,10 @@ import {
 } from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
 
-// This component is the faceted filter dropdown menu in the task table toolbar
 interface DataTableFacetedFilterProps<TData, TValue> {
   column?: Column<TData, TValue>;
   title?: string;
   options: {
-    label: string;
     value: string;
     icon?: React.ComponentType<{ className?: string }>;
   }[];
@@ -71,9 +69,7 @@ export function DataTableFacetedFilter<TData, TValue>({
                         variant="secondary"
                         key={option.value}
                         className="rounded-sm px-1 font-normal"
-                      >
-                        {option.label}
-                      </Badge>
+                      ></Badge>
                     ))
                 )}
               </div>
@@ -117,7 +113,7 @@ export function DataTableFacetedFilter<TData, TValue>({
                     {option.icon && (
                       <option.icon className="mr-2 h-4 w-4 text-muted-foreground" />
                     )}
-                    <span>{option.label}</span>
+
                     {facets?.get(option.value) && (
                       <span className="ml-auto flex h-4 w-4 items-center justify-center font-mono text-xs">
                         {facets.get(option.value)}

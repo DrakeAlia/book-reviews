@@ -1,14 +1,15 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
+
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
-import { labels, priorities, authors, genres } from "@/data/data";
-import { Book } from "../../../data/schema";
-import { DataTableRowActions } from "./data-table-actions";
-import { DataTableColumnHeader } from "./data-table-header";
 
-// This component is the main table for the books that have been created
+import { labels, priorities, statuses } from "../data/data";
+import { Book } from "../data/schema";
+import { DataTableColumnHeader } from "./data-table-column-header";
+import { DataTableRowActions } from "./data-table-row-actions";
+
 export const columns: ColumnDef<Book>[] = [
   {
     id: "select",
@@ -62,52 +63,25 @@ export const columns: ColumnDef<Book>[] = [
     },
   },
   {
-    accessorKey: "author",
+    accessorKey: "status",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Author" />
+      <DataTableColumnHeader column={column} title="Status" />
     ),
     cell: ({ row }) => {
-      const author = authors.find(
-        (author) => author.value === row.getValue("author")
+      const status = statuses.find(
+        (status) => status.value === row.getValue("status")
       );
 
-      if (!author) {
+      if (!status) {
         return null;
       }
 
       return (
         <div className="flex w-[100px] items-center">
-          {author.icon && (
-            <author.icon className="mr-2 h-4 w-4 text-muted-foreground" />
+          {status.icon && (
+            <status.icon className="mr-2 h-4 w-4 text-muted-foreground" />
           )}
-          <span>{author.label}</span>
-        </div>
-      );
-    },
-    filterFn: (row, id, value) => {
-      return value.includes(row.getValue(id));
-    },
-  },
-  {
-    accessorKey: "genre",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Genre" />
-    ),
-    cell: ({ row }) => {
-      const genre = genres.find(
-        (genre) => genre.value === row.getValue("genre")
-      );
-
-      if (!genre) {
-        return null;
-      }
-
-      return (
-        <div className="flex w-[100px] items-center">
-          {genre.icon && (
-            <genre.icon className="mr-2 h-4 w-4 text-muted-foreground" />
-          )}
-          <span>{genre.label}</span>
+          <span>{status.label}</span>
         </div>
       );
     },

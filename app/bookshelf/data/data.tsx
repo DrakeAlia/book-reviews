@@ -9,8 +9,6 @@ import {
   StopwatchIcon,
 } from "@radix-ui/react-icons";
 
-// This is the data that is used to populate the task table with dummy data
-
 export const labels = [
   {
     value: "bug",
@@ -26,7 +24,7 @@ export const labels = [
   },
 ];
 
-export const authors = [
+export const statuses = [
   {
     value: "backlog",
     label: "Backlog",
@@ -51,24 +49,6 @@ export const authors = [
     value: "canceled",
     label: "Canceled",
     icon: CrossCircledIcon,
-  },
-];
-
-export const genres = [
-  {
-    label: "Low",
-    value: "low",
-    icon: ArrowDownIcon,
-  },
-  {
-    label: "Medium",
-    value: "medium",
-    icon: ArrowRightIcon,
-  },
-  {
-    label: "High",
-    value: "high",
-    icon: ArrowUpIcon,
   },
 ];
 

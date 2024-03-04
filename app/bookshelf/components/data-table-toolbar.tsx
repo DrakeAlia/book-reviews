@@ -7,10 +7,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { DataTableViewOptions } from "./data-table-view-options";
 
-import { priorities, authors, genres } from "../../../data/data";
+import { priorities, statuses } from "../data/data";
 import { DataTableFacetedFilter } from "./data-table-facted-filter";
 
-// This component is the toolbar for the task table. It contains the filter input and the filter buttons
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
 }
@@ -31,18 +30,11 @@ export function DataTableToolbar<TData>({
           }
           className="h-8 w-[150px] lg:w-[250px]"
         />
-        {table.getColumn("author") && (
+        {table.getColumn("status") && (
           <DataTableFacetedFilter
-            column={table.getColumn("author")}
-            title="Author"
-            options={authors}
-          />
-        )}
-        {table.getColumn("genre") && (
-          <DataTableFacetedFilter
-            column={table.getColumn("genre")}
-            title="Genre"
-            options={genres}
+            column={table.getColumn("status")}
+            title="Status"
+            options={statuses}
           />
         )}
         {table.getColumn("priority") && (
