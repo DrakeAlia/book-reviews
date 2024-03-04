@@ -81,3 +81,4 @@ model UserBookList {
   book   Book @relation(fields: [bookId], references: [id])
   user   User @relation(fields: [userId], references: [id])
 }
+
