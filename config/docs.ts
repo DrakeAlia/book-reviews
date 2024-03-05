@@ -43,6 +43,11 @@ export const docsConfig: DocsConfig = {
           href: "/review",
           items: [],
         },
+        {
+          title: "View Bookshelf",
+          href: "/bookshelf",
+          items: [],
+        },
         // {
         //   title: "Edit",
         //   href: "/review/edit",

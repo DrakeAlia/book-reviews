@@ -18,7 +18,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { labels } from "../data/data";
+// import { labels } from "../data/data";
 import { bookShelfSchema } from "@/app/bookshelf/data/schema";
 
 interface DataTableRowActionsProps<TData> {
@@ -47,7 +47,7 @@ export function DataTableRowActions<TData>({
         <DropdownMenuItem>Favorite</DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuSub>
-          <DropdownMenuSubTrigger>Labels</DropdownMenuSubTrigger>
+          {/* <DropdownMenuSubTrigger>Labels</DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
             <DropdownMenuRadioGroup value={book.label}>
               {labels.map((label) => (
@@ -56,7 +56,7 @@ export function DataTableRowActions<TData>({
                 </DropdownMenuRadioItem>
               ))}
             </DropdownMenuRadioGroup>
-          </DropdownMenuSubContent>
+          </DropdownMenuSubContent> */}
         </DropdownMenuSub>
         <DropdownMenuSeparator />
         <DropdownMenuItem>

@@ -4,7 +4,7 @@
     "title": "Lord of the Rings",
     "author": "J.R.R. Tolkien",
     "status": "in progress",
-    "label": "documentation",
+    "label": "",
     "priority": "medium"
   },
   {
@@ -12,7 +12,7 @@
     "title": "Dune",
     "author": "Frank Herbert",
     "status": "backlog",
-    "label": "documentation",
+    "label": "",
     "priority": "medium"
   },
   {
@@ -20,7 +20,7 @@
     "title": "The Great Sea",
     "author": " David Abulafia",
     "status": "todo",
-    "label": "bug",
+    "label": "",
     "priority": "high"
   },
   {
@@ -28,7 +28,7 @@
     "title": "The Power Broker",
     "author": "Robert A. Caro",
     "status": "backlog",
-    "label": "feature",
+    "label": "",
     "priority": "medium"
   },
   {
@@ -36,7 +36,7 @@
     "title": "The Republic",
     "author": "Plato",
     "status": "canceled",
-    "label": "feature",
+    "label": "",
     "priority": "medium"
   }
 ]
