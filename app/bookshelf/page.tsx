@@ -16,7 +16,6 @@ import { bookShelfSchema } from "@/app/bookshelf/data/schema";
 
 // Simulate a database read for books.
 async function getBooks() {
-  // const data = await fs.readFile(path.join(process.cwd(), "@app/bookshelf/data/books.json"));
   const data = await fs.readFile(
     path.join(process.cwd(), "app/bookshelf/data/books.json")
   );
