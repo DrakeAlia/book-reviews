@@ -5,12 +5,11 @@ import { z } from "zod";
 export const bookShelfSchema = z.object({
   id: z.string(),
   title: z.string(),
+  author: z.string(),
   status: z.string(),
   label: z.string(),
   priority: z.string(),
-  author: z.string(),
-
-  year: z.number(),
+  // year: z.number(),
 });
 
 export type Book = z.infer<typeof bookShelfSchema>;

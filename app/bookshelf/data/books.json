@@ -1,35 +1,40 @@
 [
   {
     "id": "BOOK-1",
-    "title": "You can't compress the program without quantifying the open-source SSD pixel!",
+    "title": "Lord of the Rings",
+    "author": "J.R.R. Tolkien",
     "status": "in progress",
     "label": "documentation",
     "priority": "medium"
   },
   {
     "id": "BOOK-2",
-    "title": "Try to calculate the EXE feed, maybe it will index the multi-byte pixel!",
+    "title": "Dune",
+    "author": "Frank Herbert",
     "status": "backlog",
     "label": "documentation",
     "priority": "medium"
   },
   {
     "id": "BOOK-3",
-    "title": "We need to bypass the neural TCP card!",
+    "title": "The Great Sea",
+    "author": " David Abulafia",
     "status": "todo",
     "label": "bug",
     "priority": "high"
   },
   {
     "id": "BOOK-4",
-    "title": "The SAS interface is down, bypass the open-source pixel so we can back up the PNG bandwidth!",
+    "title": "The Power Broker",
+    "author": "Robert A. Caro",
     "status": "backlog",
     "label": "feature",
     "priority": "medium"
   },
   {
     "id": "BOOK-5",
-    "title": "I'll parse the wireless SSL protocol, that should driver the API panel!",
+    "title": "The Republic",
+    "author": "Plato",
     "status": "canceled",
     "label": "feature",
     "priority": "medium"

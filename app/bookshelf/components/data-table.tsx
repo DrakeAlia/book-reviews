@@ -26,7 +26,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-// This component is the main table for books
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
