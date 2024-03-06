@@ -3,40 +3,35 @@
     "id": "BOOK-1",
     "title": "Lord of the Rings",
     "author": "J.R.R. Tolkien",
-    "status": "in progress",
-    "label": "",
-    "priority": "medium"
+    "year": 1954,
+    "genre": "fantasy"
   },
   {
     "id": "BOOK-2",
     "title": "Dune",
     "author": "Frank Herbert",
-    "status": "backlog",
-    "label": "",
-    "priority": "medium"
+    "year": 1965,
+    "genre": "science fiction"
   },
   {
     "id": "BOOK-3",
     "title": "The Great Sea",
     "author": " David Abulafia",
-    "status": "todo",
-    "label": "",
-    "priority": "high"
+    "year": 2011,
+    "genre": "history"
   },
   {
     "id": "BOOK-4",
     "title": "The Power Broker",
     "author": "Robert A. Caro",
-    "status": "backlog",
-    "label": "",
-    "priority": "medium"
+    "year": 1974,
+    "genre": "biography"
   },
   {
     "id": "BOOK-5",
     "title": "The Republic",
     "author": "Plato",
-    "status": "canceled",
-    "label": "",
-    "priority": "medium"
+    "year": 380,
+    "genre": "philosophy"
   }
 ]

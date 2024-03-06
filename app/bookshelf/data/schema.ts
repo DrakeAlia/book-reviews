@@ -6,10 +6,12 @@ export const bookShelfSchema = z.object({
   id: z.string(),
   title: z.string(),
   author: z.string(),
+  genre: z.string(),
+  year: z.number(),
+  // rating: z.number(),
+  // status: z.string(),
   // label: z.string(),
-  status: z.string(),
-  priority: z.string(),
-  // year: z.number(),
+  // priority: z.string(),
 });
 
 export type Book = z.infer<typeof bookShelfSchema>;
