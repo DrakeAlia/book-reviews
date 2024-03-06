@@ -13,7 +13,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Icons } from "@/components/ui/icons";
 
-
 export function CreateAccount() {
   return (
     <Card>
@@ -24,14 +23,10 @@ export function CreateAccount() {
         </CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4">
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6">
           <Button variant="outline">
             <Icons.gitHub className="mr-2 h-4 w-4" />
             Github
-          </Button>
-          <Button variant="outline">
-            <Icons.google className="mr-2 h-4 w-4" />
-            Google
           </Button>
         </div>
         <div className="relative">
@@ -54,6 +49,7 @@ export function CreateAccount() {
         </div>
       </CardContent>
       <CardFooter>
+        <div className="grid gap-2"></div>
         <Button className="w-full">Create account</Button>
       </CardFooter>
     </Card>
