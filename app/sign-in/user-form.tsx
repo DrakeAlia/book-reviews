@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { buttonVariants } from "@/components/ui/button";
+import * as actions from "@/app/actions";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -29,7 +30,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
     <div className={cn("grid gap-6", className)} {...props}>
       <form onSubmit={onSubmit}>
         <div className="grid gap-2">
-          <div className="grid gap-1">
+          <div className="grid gap-2">
             <Label className="sr-only" htmlFor="email">
               Email
             </Label>
@@ -39,6 +40,18 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               type="email"
               autoCapitalize="none"
               autoComplete="email"
+              autoCorrect="off"
+              disabled={isLoading}
+            />
+            <Label className="sr-only" htmlFor="password">
+              Password
+            </Label>
+            <Input
+              id="password"
+              placeholder="••••••••"
+              type="password"
+              autoCapitalize="none"
+              autoComplete="password"
               autoCorrect="off"
               disabled={isLoading}
             />
@@ -61,16 +74,26 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           </span>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-3">
-        <Button variant="outline">
+      <div className="grid grid-cols-1 gap-3">
+        {/* <Button variant="outline">
           <Icons.google className="mr-2 h-4 w-4" />
           Google
-        </Button>
+        </Button> */}
+
+        {/* <form action={actions.signIn}>
+          <Button
+            type="submit"
+            className={cn(buttonVariants({ variant: "outline" }))}
+          >
+            <Icons.gitHub className="mr-2 h-4 w-4" />
+            GitHub
+          </Button>
+        </form> */}
         <Link
           target="_blank"
           rel="noreferrer"
           href={siteConfig.links.github}
-          className={cn(buttonVariants({ variant: "outline" }))}
+          className={cn(buttonVariants({ variant: "secondary" }))}
         >
           <Icons.gitHub className="mr-2 h-4 w-4" />
           GitHub
