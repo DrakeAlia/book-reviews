@@ -19,7 +19,6 @@ export const {
   signOut,
   signIn,
 } = NextAuth({
-  // trustHost: true,
   adapter: PrismaAdapter(db),
   providers: [
     Github({
