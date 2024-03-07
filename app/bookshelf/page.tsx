@@ -1,18 +1,11 @@
 import { promises as fs } from "fs";
 import path from "path";
-// import { Metadata } from "next";
 import { z } from "zod";
 
 import { columns } from "./components/columns";
 import { DataTable } from "./components/data-table";
 import { UserNav } from "./components/user-nav";
 import { bookShelfSchema } from "@/app/bookshelf/data/schema";
-
-// This page is a server component and shows information about the books.
-// export const metadata: Metadata = {
-//   title: "Bookshelf",
-//   description: "View your bookshelf.",
-// };
 
 // Simulate a database read for books.
 async function getBooks() {

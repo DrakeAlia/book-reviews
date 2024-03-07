@@ -11,10 +11,12 @@ import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { buttonVariants } from "@/components/ui/button";
 import * as actions from "@/app/actions";
+import { auth } from "../auth";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
+export async function UserAuthForm({ className, ...props }: UserAuthFormProps) {
+  const session = await auth();
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
   async function onSubmit(event: React.SyntheticEvent) {
@@ -43,7 +45,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               autoCorrect="off"
               disabled={isLoading}
             />
-            <Label className="sr-only" htmlFor="password">
+            {/* <Label className="sr-only" htmlFor="password">
               Password
             </Label>
             <Input
@@ -54,7 +56,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               autoComplete="password"
               autoCorrect="off"
               disabled={isLoading}
-            />
+            /> */}
           </div>
           <Button disabled={isLoading}>
             {isLoading && (
@@ -75,6 +77,23 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         </div>
       </div>
       <div className="grid grid-cols-1 gap-3">
+        <form action={actions.signIn}>
+          <Button
+            type="submit"
+            className={cn(buttonVariants({ variant: "secondary" }))}
+          >
+            <Icons.gitHub className="mr-2 h-4 w-4" />
+            Github
+          </Button>
+        </form>
+        <form action={actions.signOut}>
+          <Button
+            type="submit"
+            className={cn(buttonVariants({ variant: "secondary" }))}
+          >
+            Sign Out
+          </Button>
+        </form>
         {/* <Button variant="outline">
           <Icons.google className="mr-2 h-4 w-4" />
           Google
@@ -99,6 +118,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           GitHub
         </Link>
       </div>
+      {session?.user ? <div>Sign In</div> : <div>Sign Out</div>}
     </div>
   );
 }
