@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
-import { auth } from "@/app/auth";
+import { auth } from "@/auth";
 import { db } from "@/db";
 
 interface CreateReviewFormState {
