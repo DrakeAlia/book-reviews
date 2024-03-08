@@ -13,7 +13,6 @@
     "@auth/prisma-adapter": "^1.5.0",
     "@faker-js/faker": "^8.4.1",
     "@hookform/resolvers": "^3.3.4",
-    "@next-auth/prisma-adapter": "^0.4.4-canary.81",
     "@prisma/client": "^5.10.2",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-avatar": "^1.0.4",
