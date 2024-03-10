@@ -1,12 +1,12 @@
 import { MainNavItem, SidebarNavItem } from "../types/nav";
 
-interface DocsConfig {
+interface miniNavConfig {
   mainNav: MainNavItem[];
   sidebarNav: SidebarNavItem[];
 }
 
-// This is the configuration for the documentation site.
-export const docsConfig: DocsConfig = {
+
+export const miniNavConfig: miniNavConfig = {
   mainNav: [
     {
       title: "GitHub",
@@ -48,11 +48,6 @@ export const docsConfig: DocsConfig = {
           href: "/bookshelf",
           items: [],
         },
-        // {
-        //   title: "Edit",
-        //   href: "/review/edit",
-        //   items: [],
-        // },
       ],
     },
   ],

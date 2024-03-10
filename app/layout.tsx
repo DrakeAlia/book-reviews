@@ -13,6 +13,7 @@ import { ThemeSwitcher } from "@/components/ui/theme-switcher";
 import { Toaster as DefaultToaster } from "@/components/ui/toaster";
 import { Toaster as NewYorkSonner } from "@/components/ui/sonner";
 import { Toaster as NewYorkToaster } from "@/components/ui/toaster";
+import Providers from "./providers";
 
 export const metadata: Metadata = {
   title: {
@@ -91,7 +92,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <div vaul-drawer-wrapper="">
               <div className="relative flex min-h-screen flex-col bg-background">
                 <SiteHeader />
+                <Providers>
                 <main className="flex-1">{children}</main>
+                </Providers>
                 <SiteFooter />
               </div>
             </div>

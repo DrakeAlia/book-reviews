@@ -19,6 +19,7 @@ export const {
   signOut,
   signIn,
 } = NextAuth({
+  trustHost: true,
   adapter: PrismaAdapter(db),
   providers: [
     Github({
@@ -35,3 +36,16 @@ export const {
     },
   },
 });
+
+
+// import NextAuth from "next-auth";
+// import GitHub from "next-auth/providers/github";
+
+// export const {
+//   handlers: { GET, POST },
+//   auth,
+//   signIn,
+//   signOut,
+// } = NextAuth({
+//   providers: [GitHub],
+// });
