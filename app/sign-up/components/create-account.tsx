@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -12,6 +12,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Icons } from "@/components/ui/icons";
+import * as actions from "@/app/actions";
+import { cn } from "@/lib/utils";
 
 export function CreateAccount() {
   return (
@@ -24,10 +26,15 @@ export function CreateAccount() {
       </CardHeader>
       <CardContent className="grid gap-4">
         <div className="grid grid-cols-1 gap-6">
-          <Button variant="outline">
-            <Icons.gitHub className="mr-2 h-4 w-4" />
-            Github
-          </Button>
+          <form className="grid gap-2" action={actions.signIn}>
+            <Button
+              type="submit"
+              className={cn(buttonVariants({ variant: "secondary" }))}
+            >
+              <Icons.gitHub className="mr-2 h-4 w-4" />
+              Github
+            </Button>
+          </form>
         </div>
         <div className="relative">
           <div className="absolute inset-0 flex items-center">

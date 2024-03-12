@@ -96,7 +96,6 @@
 //   );
 // }
 
-
 // My code (Invalid URL - Call Stack: new NodeError):
 // "use client";
 
@@ -187,7 +186,6 @@
 //   );
 // }
 
-
 // Shadcn's code: (Missing gitub oauth credentials)
 "use client";
 
@@ -196,11 +194,9 @@ import * as React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/ui/icons";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { siteConfig } from "@/config/site";
-import { buttonVariants } from "@/components/ui/button";
 import * as actions from "@/app/actions";
 import { useSession } from "next-auth/react";
 
@@ -209,7 +205,6 @@ interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const session = useSession();
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
-
 
   async function onSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
@@ -268,8 +263,8 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           </span>
         </div>
       </div>
-      <div className="grid grid-cols-1 gap-3">
-        <form action={actions.signIn}>
+      <div className="grid grid-cols-1 gap-6">
+        <form className="grid gap-2" action={actions.signIn}>
           <Button
             type="submit"
             className={cn(buttonVariants({ variant: "secondary" }))}
@@ -278,15 +273,6 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
             Github
           </Button>
         </form>
-        <Link
-          target="_blank"
-          rel="noreferrer"
-          href={siteConfig.links.github}
-          className={cn(buttonVariants({ variant: "secondary" }))}
-        >
-          <Icons.gitHub className="mr-2 h-4 w-4" />
-          GitHub
-        </Link>
       </div>
     </div>
   );
