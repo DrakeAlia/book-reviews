@@ -101,7 +101,7 @@ export default async function UserAuthForm() {
   return (
     <div>
       <form action={actions.signIn}>
-        <Button type="submit">Github</Button>
+        <Button type="submit">GitHub</Button>
       </form>
 
       <form action={actions.signOut}>
@@ -111,7 +111,7 @@ export default async function UserAuthForm() {
       {session?.user ? (
         <div>{JSON.stringify(session.user)}</div>
       ) : (
-        <div>Sign Out</div>
+        <div>Signed Out</div>
       )}
 
       <Profile />
