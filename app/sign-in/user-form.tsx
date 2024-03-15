@@ -90,11 +90,10 @@
 
 // Stephen Grider's version:
 
-
 import { Button } from "@/components/ui/button";
-import * as actions from "@/app/actions";
 import { auth } from "@/auth";
 import Profile from "@/components/profile";
+import * as actions from "@/app/actions";
 
 export default async function UserAuthForm() {
   const session = await auth();
@@ -102,11 +101,11 @@ export default async function UserAuthForm() {
   return (
     <div>
       <form action={actions.signIn}>
-        <Button type="submit">GitHub</Button>
+        <Button type="submit">Github</Button>
       </form>
 
       <form action={actions.signOut}>
-        <Button type="submit">GitHub SignOut</Button>
+        <Button type="submit">Sign Out</Button>
       </form>
 
       {session?.user ? (
