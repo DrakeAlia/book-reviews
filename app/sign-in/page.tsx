@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-// import UserAuthForm from "./user-form";
-import { UserAuthForm } from "./user-form";
+// import { UserAuthForm } from "./user-form";
+import UserAuthForm from "./user-form";
 
 
 export const metadata: Metadata = {
