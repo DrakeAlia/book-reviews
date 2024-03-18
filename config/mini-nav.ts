@@ -5,7 +5,6 @@ interface miniNavConfig {
   sidebarNav: SidebarNavItem[];
 }
 
-
 export const miniNavConfig: miniNavConfig = {
   mainNav: [
     {
@@ -46,6 +45,11 @@ export const miniNavConfig: miniNavConfig = {
         {
           title: "View Bookshelf",
           href: "/bookshelf",
+          items: [],
+        },
+        {
+          title: "My Dashboard",
+          href: "/dashboard",
           items: [],
         },
       ],
