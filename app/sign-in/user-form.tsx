@@ -2,14 +2,8 @@
 
 import { useSession } from "next-auth/react";
 import * as actions from "@/app/actions";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import React from "react";
@@ -34,26 +28,11 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
 
   if (session.status === "loading") {
     authContent = null;
-  } else if (session.data?.user) {
-    authContent = (
-      <Popover>
-        <PopoverTrigger>
-          <Avatar>
-            <AvatarImage src={session.data.user.image || ""} />
-          </Avatar>
-        </PopoverTrigger>
-        <PopoverContent>
-          <div className="p-4">
-            <form action={actions.signOut}>
-              <Button type="submit">Sign Out</Button>
-            </form>
-          </div>
-        </PopoverContent>
-      </Popover>
-    );
-    // redirect("/dashboard");
-    
-  } else {
+  } 
+  else if (session.data?.user) {
+    redirect("/dashboard");
+  } 
+  else {
     authContent = (
       // <div className={cn("grid gap-6", className)} {...props}>
       // <form onSubmit={onSubmit}>

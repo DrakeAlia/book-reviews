@@ -3,7 +3,7 @@
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-
+import { useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -25,6 +25,9 @@ import {
   FormMessage,
 } from "@/components/react-hook-form/form";
 import { Ratings } from "./rating";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import * as actions from "@/app/actions";
+import { redirect } from "next/dist/server/api-utils";
 
 const profileFormSchema = z.object({
   title: z
@@ -58,15 +61,6 @@ const profileFormSchema = z.object({
 });
 
 type ProfileFormValues = z.infer<typeof profileFormSchema>;
-
-// This can come from your database or API.
-// const defaultValues: Partial<ProfileFormValues> = {
-//   bio: "I own a computer.",
-//   urls: [
-//     { value: "https://shadcn.com" },
-//     { value: "http://twitter.com/shadcn" },
-//   ],
-// };
 
 export function ReviewForm() {
   const form = useForm<ProfileFormValues>({

@@ -1,4 +1,7 @@
 import { ReviewForm } from "./review-form";
+import { useSession } from "next-auth/react";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { redirect } from "next/navigation";
 
 export default function ReviewPage() {
   return (
