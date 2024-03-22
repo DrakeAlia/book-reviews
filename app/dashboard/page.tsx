@@ -1,19 +1,30 @@
+import { Button } from "@/components/ui/button";
+import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import React from "react";
+import * as actions from "@/app/actions";
 
-const DashboardPage: React.FC = () => {
-  const isAuthenticated = true; // Replace with your authentication logic
+export default function DashboardPage() {
+  // const session = useSession();
+  // let authContent: React.ReactNode;
 
-  if (!isAuthenticated) {
-    return redirect("/sign-in");
-  }
+  // if (session.status === "loading") {
+  //   authContent = null;
+  // } else if (session.data?.user) {
+  //   authContent = (
+  //     <div>
+  //       <h1>Welcome back, {session.data.user.name}!</h1>
+  //       <p>Redirecting you to your dashboard...</p>
+  //       <div className="p-4">
+  //         <form action={actions.signOut}>
+  //           <Button type="submit">Sign Out</Button>
+  //         </form>
+  //       </div>
+  //     </div>
+  //   );
+  // } else {
+  //   authContent = null;
+  // }
 
-  return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-4xl font-bold mb-4">Welcome to the Dashboard!</h1>
-      {/* Add your dashboard content here */}
-    </div>
-  );
-};
 
-export default DashboardPage;
+}

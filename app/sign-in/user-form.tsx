@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import React from "react";
 import { Icons } from "@/components/ui/icons";
+import { redirect } from "next/navigation";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -50,6 +51,8 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         </PopoverContent>
       </Popover>
     );
+    // redirect("/dashboard");
+    
   } else {
     authContent = (
       // <div className={cn("grid gap-6", className)} {...props}>

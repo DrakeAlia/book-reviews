@@ -7,8 +7,6 @@ import Image from "next/image";
 
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-// import { Icons } from "@/components/ui/icons";
-// import { Badge } from "@/components/ui/badge";
 
 export function MainNav() {
   const pathname = usePathname();
@@ -16,7 +14,6 @@ export function MainNav() {
   return (
     <div className="mr-4 hidden md:flex">
       <Link href="/" className="mr-6 flex items-center space-x-2">
-        {/* <Icons.logo className="h-6 w-6" /> */}
         <Image
           className="h-9 w-9 rounded-lg"
           src="/logo.png"
