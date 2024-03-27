@@ -28,6 +28,7 @@ import { Ratings } from "./rating";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import * as actions from "@/app/actions";
 import { redirect } from "next/dist/server/api-utils";
+import Link from "next/link";
 
 const profileFormSchema = z.object({
   title: z
@@ -185,7 +186,12 @@ export function ReviewForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit Review</Button>
+        <div>
+          <Link href="/bookshelf">
+            <Button>Submit</Button>
+          </Link>
+        </div>
+        {/* <Button type="submit">Submit Review</Button> */}
       </form>
     </Form>
   );

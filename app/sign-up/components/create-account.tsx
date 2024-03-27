@@ -12,8 +12,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Icons } from "@/components/ui/icons";
-import * as actions from "@/app/actions";
 import { cn } from "@/lib/utils";
+import * as actions from "@/app/actions";
 
 export function CreateAccount() {
   return (

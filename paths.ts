@@ -8,14 +8,14 @@ const paths = {
   signUpPath() {
     return "/sign-up";
   },
-  dashboardPath() {
-    return "/dashboard";
+  dashboardPath(dashboardId: string) {
+    return `/dashboard/${dashboardId}`;
+  },
+  bookshelfPath(bookshelfId: string) {
+    return `/bookshelf/${bookshelfId}`;
   },
   reviewPath() {
     return "/review";
-  },
-  bookshelfPath() {
-    return "/bookshelf";
   },
 };
 
