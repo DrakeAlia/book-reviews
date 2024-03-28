@@ -12,6 +12,8 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
 
+// This is the mobile navigation component that is displayed on smaller screens.
+
 export function MobileNav() {
   const [open, setOpen] = React.useState(false);
 
