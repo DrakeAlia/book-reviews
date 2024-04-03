@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "BookBlend",
-  url: "http://www.github.com/DrakeAlia/book-reviews",
+  url: "https://book-reviews-orcin.vercel.app/",
   description: "Write a review or rate a book.",
   links: {
     twitter: "https://twitter.com/drake___alia",
