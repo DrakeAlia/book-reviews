@@ -1,7 +1,7 @@
 import { useAtom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 
-import { Style } from "@/components/styles";
+import { Style } from "@/styles/styles";
 import { Theme } from "@/components/theme";
 
 type Config = {

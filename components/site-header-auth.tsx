@@ -18,7 +18,7 @@ export default function SiteHeaderAuth() {
     authContent = (
       <Popover>
         <PopoverTrigger>
-          <Avatar>
+          <Avatar className="h-6 w-6 m-2">
             <AvatarImage src={session.data.user.image || ""} />
           </Avatar>
         </PopoverTrigger>

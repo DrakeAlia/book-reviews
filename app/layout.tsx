@@ -7,8 +7,8 @@ import { fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { Analytics } from "@/components/ui/analytics";
 import { ThemeProvider } from "@/components/theme-provider";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
+import { SiteHeader } from "@/components/layout/site-header";
 import { ThemeSwitcher } from "@/components/ui/theme-switcher";
 import { Toaster as DefaultToaster } from "@/components/ui/toaster";
 import { Toaster as NewYorkSonner } from "@/components/ui/sonner";
@@ -90,7 +90,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <div className="relative flex min-h-screen flex-col bg-background">
                 <SiteHeader />
                 <Providers>
-                <main className="flex-1">{children}</main>
+                  <main className="flex-1">{children}</main>
                 </Providers>
                 <SiteFooter />
               </div>

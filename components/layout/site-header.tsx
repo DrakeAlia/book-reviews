@@ -2,19 +2,19 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/ui/icons";
-import { MainNav } from "@/components/main-nav";
-import { MobileNav } from "@/components/mobile-nav";
+import { MainNav } from "@/components/layout/main-nav";
+import { MobileNav } from "@/components/layout/mobile-nav";
 import { ModeToggle } from "./mode-toggle";
 import { siteConfig } from "@/config/site";
-import { CommandMenu } from "./command-menu";
+import { CommandMenu } from "../command-menu";
 import { buttonVariants } from "@/components/ui/button";
 import { SessionProvider } from "next-auth/react";
-import SiteHeaderAuth from "./site-header-auth";
+import SiteHeaderAuth from "../site-header-auth";
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 max-w-screen-2xl items-center">
+      <div className="container flex h-14 items-center justify-between">
         <SessionProvider>
           <MainNav />
           <MobileNav />
@@ -24,9 +24,6 @@ export function SiteHeader() {
             <CommandMenu />
           </div>
           <nav className="flex items-center">
-            <SessionProvider>
-              <SiteHeaderAuth />
-            </SessionProvider>
             <Link
               href={siteConfig.links.github}
               target="_blank"
@@ -62,6 +59,9 @@ export function SiteHeader() {
               </div>
             </Link>
             <ModeToggle />
+            <SessionProvider>
+              <SiteHeaderAuth />
+            </SessionProvider>
           </nav>
         </div>
       </div>
