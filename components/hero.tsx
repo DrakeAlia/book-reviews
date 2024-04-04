@@ -40,15 +40,14 @@ export default function Hero() {
               </span>
             </m.h1>
             <PageHeaderDescription>
-            <m.p
-              variants={FADE_DOWN_ANIMATION_VARIANTS}
-              className="mt-3 text-base text-center text-muted-foreground md:text-xl"
-            >
-              Here you can write a review for books that you have read and rate
-              them. These reviewed books will be added to your bookshelf. Shared
-              reviews will be visible to other users.
-            </m.p>
-
+              <m.p
+                variants={FADE_DOWN_ANIMATION_VARIANTS}
+                className="mt-3 text-base items-center text-center text-muted-foreground md:text-xl"
+              >
+                Here you can write a review for books that you have read and
+                rate them. These reviewed books will be added to your bookshelf.
+                Shared reviews will be visible to other users.
+              </m.p>
             </PageHeaderDescription>
             <PageActions>
               <m.div
