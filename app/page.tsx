@@ -8,16 +8,14 @@ import {
   PageHeaderHeading,
 } from "@/components/ui/page-header";
 import { buttonVariants } from "@/components/ui/button";
-import { Icons } from "@/components/ui/icons";
 
 // Main page for the site
 export default function HomePage() {
   return (
     <div className="container relative">
-      {/* <Hero /> */}
-      <PageHeader>
-        {/* <PageHeaderHeading>Welcome to BookBlend</PageHeaderHeading> */}
-        <PageHeaderHeading>
+      <Hero />
+      {/* <PageHeader> */}
+      {/* <PageHeaderHeading>
           Welcome to{" "}
           <span className="text-primary font-bold">BookBlend</span>
         </PageHeaderHeading>
@@ -39,7 +37,7 @@ export default function HomePage() {
             View Bookshelf
           </Link>
         </PageActions>
-      </PageHeader>
+      </PageHeader> */}
     </div>
   );
 }

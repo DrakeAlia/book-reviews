@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import {
   PageActions,
   PageHeader,
+  PageHeaderDescription,
 } from "@/components/ui/page-header";
 import { domAnimation, LazyMotion, m } from "framer-motion";
 import { FADE_DOWN_ANIMATION_VARIANTS } from "@/animation/index";
@@ -38,6 +39,7 @@ export default function Hero() {
                 BookBlend
               </span>
             </m.h1>
+            <PageHeaderDescription>
             <m.p
               variants={FADE_DOWN_ANIMATION_VARIANTS}
               className="mt-3 text-base text-center text-muted-foreground md:text-xl"
@@ -46,6 +48,8 @@ export default function Hero() {
               them. These reviewed books will be added to your bookshelf. Shared
               reviews will be visible to other users.
             </m.p>
+
+            </PageHeaderDescription>
             <PageActions>
               <m.div
                 variants={FADE_DOWN_ANIMATION_VARIANTS}
