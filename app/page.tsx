@@ -12,12 +12,11 @@ import { buttonVariants } from "@/components/ui/button";
 // Main page for the site
 export default function HomePage() {
   return (
-    <div className="container relative">
-      <Hero />
-      {/* <PageHeader> */}
-      {/* <PageHeaderHeading>
-          Welcome to{" "}
-          <span className="text-primary font-bold">BookBlend</span>
+    <div className="container relative my-14">
+      {/* <Hero /> */}
+      <PageHeader>
+        <PageHeaderHeading>
+          Welcome to <span className="text-primary font-bold">BookBlend</span>
         </PageHeaderHeading>
         <PageHeaderDescription>
           Here you can write a review for books that you have read and rate
@@ -37,7 +36,7 @@ export default function HomePage() {
             View Bookshelf
           </Link>
         </PageActions>
-      </PageHeader> */}
+      </PageHeader>
     </div>
   );
 }
