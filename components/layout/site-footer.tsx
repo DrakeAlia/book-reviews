@@ -9,33 +9,23 @@ export function SiteFooter() {
       <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
         <p className="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
           Built by{" "}
-          <Link
+          <a
             href={siteConfig.links.twitter}
             target="_blank"
             rel="noreferrer"
-            className={cn(
-              buttonVariants({
-                variant: "link",
-              }),
-              "font-medium underline underline-offset-4 p-0"
-            )}
+            className="font-medium underline text-primary underline-offset-4"
           >
             DrakeAlia
-          </Link>
+          </a>
           . The source code is available on{" "}
-          <Link
+          <a
             href={siteConfig.links.githubProject}
             target="_blank"
             rel="noreferrer"
-            className={cn(
-              buttonVariants({
-                variant: "link",
-              }),
-              "font-medium underline underline-offset-4 p-0"
-            )}
+            className="font-medium underline text-primary underline-offset-4"
           >
             GitHub
-          </Link>
+          </a>
           .
         </p>
       </div>
