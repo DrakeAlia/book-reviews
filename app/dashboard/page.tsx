@@ -11,28 +11,40 @@ export default function DashboardPage() {
   const session = useSession();
   let authContent: React.ReactNode;
 
-  if (session.status === "loading" || session.status === "unauthenticated") {
-    redirect("/");
-  } else if (session.data?.user) {
-    authContent = (
-      <div>
-        <h1>
-          Welcome back, {session.data.user.name}!{" "}
-          <span role="img" aria-label="wave">
-            👋
-          </span>
-        </h1>
-        <Avatar>
-          <AvatarImage src={session.data.user.image || ""} />
-        </Avatar>
-        <div className="p-4">
-          <form action={actions.signOut}>
-            <Button type="submit">Sign Out</Button>
-          </form>
-        </div>
-      </div>
-    );
-  }
-
-  return authContent;
+  return (
+    <div className="container relative my-14">
+      <h1>
+        Welcome to the dashboard!{" "}
+        <span role="img" aria-label="wave">
+          👋
+        </span>
+      </h1>
+    </div>
+  );
 }
+
+//   if (session.status === "loading" || session.status === "unauthenticated") {
+//     redirect("/");
+//   } else if (session.data?.user) {
+//     authContent = (
+//       <div>
+//         <h1>
+//           Welcome back, {session.data.user.name}!{" "}
+//           <span role="img" aria-label="wave">
+//             👋
+//           </span>
+//         </h1>
+//         <Avatar>
+//           <AvatarImage src={session.data.user.image || ""} />
+//         </Avatar>
+//         <div className="p-4">
+//           <form action={actions.signOut}>
+//             <Button type="submit">Sign Out</Button>
+//           </form>
+//         </div>
+//       </div>
+//     );
+//   }
+
+//   return authContent;
+// }
