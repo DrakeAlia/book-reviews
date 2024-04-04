@@ -2,12 +2,6 @@ const paths = {
   home() {
     return "/";
   },
-  signInPath() {
-    return "/sign-in";
-  },
-  signUpPath() {
-    return "/sign-up";
-  },
   dashboardPath(dashboardId: string) {
     return `/dashboard/${dashboardId}`;
   },
