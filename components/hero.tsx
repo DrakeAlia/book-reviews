@@ -5,59 +5,72 @@ import { cn } from "@/lib/utils";
 import {
   PageActions,
   PageHeader,
-  PageHeaderDescription,
-  PageHeaderHeading,
 } from "@/components/ui/page-header";
 import { domAnimation, LazyMotion, m } from "framer-motion";
 import { FADE_DOWN_ANIMATION_VARIANTS } from "@/animation/index";
+import { buttonVariants } from "./ui/button";
 
 export default function Hero() {
   return (
-    // <div className="container relative p-16">
-    //   <PageHeader>
-    //     <PageHeaderHeading>BookBlend</PageHeaderHeading>
-    //     <PageHeaderDescription>
-    //       Welcome to BookBlend, where you can write a review and rate a books
-    //       that you have read. Sign in or sign up to get started
-    //     </PageHeaderDescription>
-    //   </PageHeader>
-    // </div>
-    <LazyMotion features={domAnimation}>
-      <m.div
-        initial="hidden"
-        animate="show"
-        viewport={{ once: true }}
-        variants={{
-          hidden: {},
-          show: {
-            transition: {
-              staggerChildren: 0.15,
+    <PageHeader>
+      <LazyMotion features={domAnimation}>
+        <m.div
+          initial="hidden"
+          animate="show"
+          viewport={{ once: true }}
+          variants={{
+            hidden: {},
+            show: {
+              transition: {
+                staggerChildren: 0.15,
+              },
             },
-          },
-        }}
-        className="my-14 flex items-center justify-center"
-      >
-        <div className="container relative p-28">
-          <m.h1
-            variants={FADE_DOWN_ANIMATION_VARIANTS}
-            className="text-4xl font-bold text-center md:text-6xl"
-          >
-            Welcome to BookBlend!
-          </m.h1>
-          <m.h2
-            variants={FADE_DOWN_ANIMATION_VARIANTS}
-            className="my-1 text-2xl text-center font-semibold text-primary md:text-4xl"
-          >
-            Write a review and rate a book
-          </m.h2>
-          <m.p
-            variants={FADE_DOWN_ANIMATION_VARIANTS}
-            className="mt-3 text-lg text-center text-muted-foreground md:text-xl"
-          >
-            Sign In to start writing reviews and rating your favorite books.
-          </m.p>
-        </div>
-      </m.div>
-    </LazyMotion>
+          }}
+          className="my-14 flex items-center justify-between"
+        >
+          <div className="container relative">
+            <m.h1
+              variants={FADE_DOWN_ANIMATION_VARIANTS}
+              className="text-4xl text-center font-bold md:text-6xl"
+            >
+              Welcome to{" "}
+              <span className="text-4xl font-bold md:text-6xl text-primary">
+                BookBlend
+              </span>
+            </m.h1>
+            <m.p
+              variants={FADE_DOWN_ANIMATION_VARIANTS}
+              className="mt-3 text-base text-center text-muted-foreground md:text-xl"
+            >
+              Here you can write a review for books that you have read and rate
+              them. These reviewed books will be added to your bookshelf. Shared
+              reviews will be visible to other users.
+            </m.p>
+            <PageActions>
+              <m.div
+                variants={FADE_DOWN_ANIMATION_VARIANTS}
+                className="mt-5 flex justify-center gap-5"
+              >
+                <Link
+                  href="/review"
+                  className={cn(buttonVariants(), "rounded-[6px]")}
+                >
+                  Create a Review
+                </Link>
+                <Link
+                  href="/bookshelf"
+                  className={cn(
+                    buttonVariants({ variant: "outline" }),
+                    "rounded-[6px]"
+                  )}
+                >
+                  Bookshelf
+                </Link>
+              </m.div>
+            </PageActions>
+          </div>
+        </m.div>
+      </LazyMotion>
+    </PageHeader>
   );
 }

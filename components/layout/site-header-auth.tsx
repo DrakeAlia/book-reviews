@@ -14,7 +14,7 @@ import {
 import { useSession } from "next-auth/react";
 import React from "react";
 import * as actions from "@/app/actions";
-import { UserAuthForm } from "../login/user-form";
+import { UserAuthForm } from "./user-form";
 import Link from "next/link";
 
 export default function SiteHeaderAuth() {
@@ -61,7 +61,7 @@ export default function SiteHeaderAuth() {
                     Sign In
                   </h1>
                   <p className="text-sm text-muted-foreground">
-                    Enter your email below to sign in and view your bookshelf.
+                    Enter your email below to sign in
                   </p>
                 </div>
                 <UserAuthForm />
