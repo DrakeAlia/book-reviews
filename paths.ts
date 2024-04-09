@@ -2,14 +2,14 @@ const paths = {
   home() {
     return "/";
   },
-  dashboardPath(dashboardId: string) {
+  reviewShow(reviewSlug: string) {
+    return `/review/${reviewSlug}`;
+  },
+  bookshelfShow(bookshelfSlug: string) {
+    return `/bookshelf/${bookshelfSlug}`;
+  },
+  dashboardShow(dashboardId: string) {
     return `/dashboard/${dashboardId}`;
-  },
-  bookshelfPath(bookshelfId: string) {
-    return `/bookshelf/${bookshelfId}`;
-  },
-  reviewPath() {
-    return "/review";
   },
 };
 
