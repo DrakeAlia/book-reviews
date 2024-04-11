@@ -9,50 +9,52 @@ import { db } from "@/db";
 import paths from "@/paths";
 
 const createReviewSchema = z.object({
+  name: z.string().min(1).max(100),
   title: z.string().min(1).max(100),
   author: z.string().min(1).max(100),
   genre: z.string().min(1).max(100),
   description: z.string().min(1).max(1000),
   rating: z.number().min(1).max(5),
+  bookId: z.string().cuid(), // Add this line to validate the bookId
 });
 
-interface createReviewFormState {
+interface CreateReviewFormState {
   errors: {
     title?: string[];
     author?: string[];
     genre?: string[];
     description?: string[];
     rating?: string[];
+    bookId?: string[]; // Add this line
     _form?: string[];
   };
 }
 
 export async function createReview(
-  formState: createReviewFormState,
+  formState: CreateReviewFormState,
   formData: FormData
-): Promise<createReviewFormState> {
+): Promise<CreateReviewFormState> {
   const result = createReviewSchema.safeParse({
     title: formData.get("title"),
     author: formData.get("author"),
     genre: formData.get("genre"),
     description: formData.get("description"),
     rating: formData.get("rating"),
+    bookId: formData.get("bookId"), // Add this line
   });
+
   console.log(result);
 
   if (!result.success) {
-    return {
-      errors: result.error.flatten().fieldErrors,
-    };
+    console.log(result.error.flatten().fieldErrors);
+    return { errors: result.error.flatten().fieldErrors };
   }
 
   const session = await auth();
 
   if (!session || !session.user) {
     return {
-      errors: {
-        _form: ["You must be signed in to create a review."],
-      },
+      errors: { _form: ["You must be signed in to create a review."] },
     };
   }
 
@@ -60,26 +62,21 @@ export async function createReview(
   try {
     review = await db.review.create({
       data: {
+        slug: result.data.name,
         title: result.data.title,
         author: result.data.author,
         genre: result.data.genre,
         description: result.data.description,
         rating: result.data.rating,
+        userId: session.user.id,
+        bookId: result.data.bookId,
       },
     });
   } catch (err: unknown) {
     if (err instanceof Error) {
-      return {
-        errors: {
-          _form: [err.message],
-        },
-      };
+      return { errors: { _form: [err.message] } };
     } else {
-      return {
-        errors: {
-          _form: ["Failed to create review."],
-        },
-      };
+      return { errors: { _form: ["Failed to create review."] } };
     }
   }
 

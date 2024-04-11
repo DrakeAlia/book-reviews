@@ -1,9 +1,10 @@
 "use client";
 
 import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import * as actions from "@/app/actions";
 import { useSession } from "next-auth/react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useFieldArray, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -13,22 +14,21 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
-import { toast } from "@/components/ui/use-toast";
 import {
   Form,
-  FormControl,
-  FormDescription,
-  FormField,
   FormItem,
   FormLabel,
+  FormControl,
+  FormDescription,
   FormMessage,
-} from "@/components/react-hook-form/form";
+  FormField,
+  useFormField,
+} from "@/components/ui/form";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "@/components/ui/use-toast";
 import { Ratings } from "./rating";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import * as actions from "@/app/actions";
-import { redirect } from "next/dist/server/api-utils";
 import Link from "next/link";
+import FormButton from "@/common/form-button";
 
 const profileFormSchema = z.object({
   title: z
@@ -66,14 +66,8 @@ type ProfileFormValues = z.infer<typeof profileFormSchema>;
 export function ReviewForm() {
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(profileFormSchema),
-    // defaultValues,
     mode: "onChange",
   });
-
-  // const { fields, append } = useFieldArray({
-  //   name: "urls",
-  //   control: form.control,
-  // });
 
   function onSubmit(data: ProfileFormValues) {
     toast({
@@ -188,10 +182,9 @@ export function ReviewForm() {
         />
         <div>
           <Link href="/bookshelf">
-            <Button>Submit</Button>
+            <FormButton>Submit</FormButton>
           </Link>
         </div>
-        {/* <Button type="submit">Submit Review</Button> */}
       </form>
     </Form>
   );

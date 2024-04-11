@@ -1,13 +1,12 @@
-import Hero from "@/components/hero";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 import {
   PageActions,
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/ui/page-header";
-import { buttonVariants } from "@/components/ui/button";
 
 // Main page for the site
 export default function HomePage() {
