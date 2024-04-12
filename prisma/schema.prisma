@@ -66,7 +66,6 @@ model Review {
   author      String
   genre       String
   description String
-  rating      Int
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

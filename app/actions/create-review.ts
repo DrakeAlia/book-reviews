@@ -10,12 +10,34 @@ import paths from "@/paths";
 
 const createReviewSchema = z.object({
   name: z.string().min(1).max(100),
-  title: z.string().min(1).max(100),
-  author: z.string().min(1).max(100),
-  genre: z.string().min(1).max(100),
-  description: z.string().min(1).max(1000),
-  rating: z.number().min(1).max(5),
-  bookId: z.string().cuid(), // Add this line to validate the bookId
+  title: z
+    .string()
+    .min(2, {
+      message: "Book's title must be at least 2 characters.",
+    })
+    .max(20, {
+      message: "Book's title must not be longer than 20 characters.",
+    }),
+  author: z
+    .string()
+    .min(2, {
+      message: "Author must be at least 2 characters.",
+    })
+    .max(20, {
+      message: "Author name must not be longer than 20 characters.",
+    }),
+  genre: z.string({
+    required_error: "Please select an genre to display.",
+  }),
+  description: z
+    .string()
+    .min(10, {
+      message: "Review must be at least 10 characters.",
+    })
+    .max(1000, {
+      message: "Review must not be longer than 1000 characters.",
+    }),
+  bookId: z.string().cuid(),
 });
 
 interface CreateReviewFormState {
@@ -24,8 +46,7 @@ interface CreateReviewFormState {
     author?: string[];
     genre?: string[];
     description?: string[];
-    rating?: string[];
-    bookId?: string[]; // Add this line
+    bookId?: string[];
     _form?: string[];
   };
 }
@@ -39,8 +60,7 @@ export async function createReview(
     author: formData.get("author"),
     genre: formData.get("genre"),
     description: formData.get("description"),
-    rating: formData.get("rating"),
-    bookId: formData.get("bookId"), // Add this line
+    bookId: formData.get("bookId"),
   });
 
   console.log(result);
@@ -67,7 +87,6 @@ export async function createReview(
         author: result.data.author,
         genre: result.data.genre,
         description: result.data.description,
-        rating: result.data.rating,
         userId: session.user.id,
         bookId: result.data.bookId,
       },
@@ -81,5 +100,5 @@ export async function createReview(
   }
 
   revalidatePath(paths.home());
-  redirect(paths.reviewShow(review.slug));
+  redirect(paths.bookShelfShow());
 }

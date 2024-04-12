@@ -34,23 +34,23 @@ export default function ReviewCreateForm() {
       <div className="grid gap-4 py-4">
         <div className="grid gap-2">
           <Label htmlFor="title">Title</Label>
-          <Input id="title" name="title" placeholder="Title" />
+          <Input id="title" name="title" placeholder="Title of the book" />
           <span className="text-red-500">
             {formState.errors.title?.join(", ")}
           </span>
         </div>
         <div className="grid gap-2">
           <Label htmlFor="author">Author</Label>
-          <Input id="author" name="author" placeholder="Author" />
+          <Input id="author" name="author" placeholder="Author name" />
           <span className="text-red-500">
             {formState.errors.author?.join(", ")}
           </span>
         </div>
         <div className="grid gap-2">
           <Label htmlFor="genre">Genre</Label>
-          <Select>
-            <SelectTrigger>
-              <SelectValue />
+          <Select name="genre">
+            <SelectTrigger id="genre">
+              <SelectValue placeholder="Select a genre" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="fiction">Fiction</SelectItem>
@@ -67,11 +67,11 @@ export default function ReviewCreateForm() {
           </span>
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="description">Description</Label>
+          <Label htmlFor="description">Review</Label>
           <Textarea
             id="description"
             name="description"
-            placeholder="Describe your book here..."
+            placeholder="Add your review here.."
           />
           <span className="text-red-500">
             {formState.errors.description?.join(", ")}

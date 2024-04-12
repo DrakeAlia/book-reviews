@@ -5,9 +5,12 @@ const paths = {
   reviewShow(reviewSlug: string) {
     return `/review/${reviewSlug}`;
   },
-  bookshelfShow(bookshelfSlug: string) {
-    return `/bookshelf/${bookshelfSlug}`;
+  bookShelfShow() {
+    return "/bookshelf";
   },
+  // bookshelfShow(bookShelfSlug: string) {
+  //   return `/bookShelf/${bookShelfSlug}`;
+  // },
   dashboardShow(dashboardId: string) {
     return `/dashboard/${dashboardId}`;
   },

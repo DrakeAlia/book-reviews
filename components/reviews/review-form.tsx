@@ -1,12 +1,14 @@
 "use client";
 
+import Link from "next/link";
+import FormButton from "@/common/form-button";
 import * as z from "zod";
 import * as actions from "@/app/actions";
 import { useSession } from "next-auth/react";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useFieldArray, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Select,
   SelectContent,
@@ -26,9 +28,8 @@ import {
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/use-toast";
-import { Ratings } from "./rating";
-import Link from "next/link";
-import FormButton from "@/common/form-button";
+import { useFormState } from "react-dom";
+import { resolve } from "path";
 
 const profileFormSchema = z.object({
   title: z
@@ -47,23 +48,22 @@ const profileFormSchema = z.object({
     .max(30, {
       message: "Author name must not be longer than 30 characters.",
     }),
-  genre: z
-    .string({
-      required_error: "Please select an genre to display.",
+  genre: z.string({
+    required_error: "Please select an genre to display.",
+  }),
+  description: z
+    .string()
+    .min(10, {
+      message: "Review must be at least 10 characters.",
     })
-    .min(2, {
-      message: "You must select a genre",
-    })
-    .max(30, {
-      message: "You must select a genre",
+    .max(500, {
+      message: "Review must not be longer than 500 characters.",
     }),
-  review: z.string().max(160).min(4),
-  rating: z.number().int().min(1).max(5),
 });
 
 type ProfileFormValues = z.infer<typeof profileFormSchema>;
 
-export function ReviewForm() {
+export default function ReviewForm() {
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(profileFormSchema),
     mode: "onChange",
@@ -152,13 +152,13 @@ export function ReviewForm() {
         />
         <FormField
           control={form.control}
-          name="review"
+          name="description"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Review</FormLabel>
+              <FormLabel>Description</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Write a review of the book here."
+                  placeholder="Write a description of the book here."
                   className="resize-none"
                   {...field}
                 />
@@ -167,23 +167,8 @@ export function ReviewForm() {
             </FormItem>
           )}
         />
-        <FormField
-          control={form.control}
-          name="rating"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Rating</FormLabel>
-              <FormControl>
-                <Ratings rating={3} variant="yellow" totalStars={5} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
         <div>
-          <Link href="/bookshelf">
-            <FormButton>Submit</FormButton>
-          </Link>
+          <FormButton>Submit</FormButton>
         </div>
       </form>
     </Form>
