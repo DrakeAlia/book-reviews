@@ -40,7 +40,7 @@ const createReviewSchema = z.object({
   bookId: z.string().cuid(),
 });
 
-interface CreateReviewFormState {
+interface createReviewFormState {
   errors: {
     title?: string[];
     author?: string[];
@@ -52,9 +52,9 @@ interface CreateReviewFormState {
 }
 
 export async function createReview(
-  formState: CreateReviewFormState,
+  formState: createReviewFormState,
   formData: FormData
-): Promise<CreateReviewFormState> {
+): Promise<createReviewFormState> {
   const result = createReviewSchema.safeParse({
     title: formData.get("title"),
     author: formData.get("author"),
