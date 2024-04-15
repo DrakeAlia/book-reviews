@@ -7,9 +7,9 @@ import { z } from "zod";
 import { auth } from "@/auth";
 import { db } from "@/db";
 import paths from "@/paths";
+import { use } from "react";
 
 const createReviewSchema = z.object({
-  name: z.string().min(1).max(100),
   title: z
     .string()
     .min(2, {
@@ -37,7 +37,6 @@ const createReviewSchema = z.object({
     .max(1000, {
       message: "Review must not be longer than 1000 characters.",
     }),
-  bookId: z.string().cuid(),
 });
 
 interface createReviewFormState {
@@ -46,7 +45,6 @@ interface createReviewFormState {
     author?: string[];
     genre?: string[];
     description?: string[];
-    bookId?: string[];
     _form?: string[];
   };
 }
@@ -60,7 +58,6 @@ export async function createReview(
     author: formData.get("author"),
     genre: formData.get("genre"),
     description: formData.get("description"),
-    bookId: formData.get("bookId"),
   });
 
   console.log(result);
@@ -82,13 +79,10 @@ export async function createReview(
   try {
     review = await db.review.create({
       data: {
-        slug: result.data.name,
         title: result.data.title,
         author: result.data.author,
         genre: result.data.genre,
         description: result.data.description,
-        userId: session.user.id,
-        bookId: result.data.bookId,
       },
     });
   } catch (err: unknown) {

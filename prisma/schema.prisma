@@ -64,8 +64,6 @@ model Review {
   author      String
   genre       String
   description String
-  userId      String
-  reviewId    String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -81,7 +79,6 @@ model Book {
   cover    String
   genre    String
   userId   String
-  reviewId String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

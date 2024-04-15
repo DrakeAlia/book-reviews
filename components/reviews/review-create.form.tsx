@@ -55,11 +55,17 @@ export default function ReviewCreateForm() {
             <SelectContent>
               <SelectItem value="fiction">Fiction</SelectItem>
               <SelectItem value="non-fiction">Non-Fiction</SelectItem>
+              <SelectItem value="science-fiction">Science Fiction</SelectItem>
               <SelectItem value="biography">Biography</SelectItem>
               <SelectItem value="mystery">Mystery</SelectItem>
               <SelectItem value="thriller">Thriller</SelectItem>
               <SelectItem value="fantasy">Fantasy</SelectItem>
-              <SelectItem value="science-fiction">Science Fiction</SelectItem>
+              <SelectItem value="horror">Horror</SelectItem>
+              <SelectItem value="romance">Romance</SelectItem>
+              <SelectItem value="poetry">Poetry</SelectItem>
+              <SelectItem value="history">History</SelectItem>
+              <SelectItem value="science">Science</SelectItem>
+              <SelectItem value="novel">Novel</SelectItem>
             </SelectContent>
           </Select>
           <span className="text-red-500">
