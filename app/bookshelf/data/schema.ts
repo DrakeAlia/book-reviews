@@ -7,7 +7,7 @@ export const bookShelfSchema = z.object({
   title: z.string(),
   author: z.string(),
   genre: z.string(),
-  year: z.number(),
+  // year: z.number(),
   // rating: z.number(),
   // status: z.string(),
   // label: z.string(),

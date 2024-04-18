@@ -27,8 +27,6 @@ export default function HomePage() {
             Start Review
           </Link>
           <Link
-            target="_blank"
-            rel="noreferrer"
             href="/bookshelf"
             className={cn(buttonVariants({ variant: "outline" }))}
           >

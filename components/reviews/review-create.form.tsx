@@ -53,6 +53,9 @@ export default function ReviewCreateForm() {
               <SelectItem value="romance">Romance</SelectItem>
               <SelectItem value="poetry">Poetry</SelectItem>
               <SelectItem value="history">History</SelectItem>
+              <SelectItem value="historical fiction">
+                Historical Fiction
+              </SelectItem>
               <SelectItem value="science">Science</SelectItem>
               <SelectItem value="novel">Novel</SelectItem>
             </SelectContent>

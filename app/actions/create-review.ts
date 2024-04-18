@@ -20,7 +20,7 @@ const createReviewSchema = z.object({
     .min(2, {
       message: "Book's title must be at least 2 characters.",
     })
-    .max(20, {
+    .max(30, {
       message: "Book's title must not be longer than 20 characters.",
     }),
   author: z
@@ -33,7 +33,7 @@ const createReviewSchema = z.object({
     }),
   description: z
     .string()
-    .min(10, {
+    .min(5, {
       message: "Review must be at least 10 characters.",
     })
     .max(1000, {

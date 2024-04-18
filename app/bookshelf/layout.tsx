@@ -25,12 +25,13 @@ export default function BookShelfLayout({ children }: BookShelfLayoutProps) {
       <div className="container relative">
         <PageHeader>
           <PageHeaderHeading className="hidden md:block">
-            BookShelf
+            Here&apos;s the BookShelf
           </PageHeaderHeading>
           <PageHeaderHeading className="md:hidden">BookShelf</PageHeaderHeading>
           <PageHeaderDescription>
-            This is a collection of books that you have read and reviewed. You
-            can also add new books to the collection.
+            {/* See your books that you have reviewed as well as what other&apos;s book reviews. */}
+            See the books that you have reviewed as well as what other
+            people&apos;s book reviews.
           </PageHeaderDescription>
           <PageActions>
             <Link

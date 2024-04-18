@@ -8,7 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { genres } from "../data/data";
 import { Book } from "../data/schema";
 import { DataTableColumnHeader } from "./data-table-column-header";
-import { DataTableRowActions } from "./data-table-row-actions";
+// import { DataTableRowActions } from "./data-table-row-actions";
 
 export const columns: ColumnDef<Book>[] = [
   {
@@ -35,15 +35,15 @@ export const columns: ColumnDef<Book>[] = [
     enableSorting: false,
     enableHiding: false,
   },
-  {
-    accessorKey: "id",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Book" />
-    ),
-    cell: ({ row }) => <div className="w-[80px]">{row.getValue("id")}</div>,
-    enableSorting: false,
-    enableHiding: false,
-  },
+  // {
+  //   accessorKey: "id",
+  //   header: ({ column }) => (
+  //     <DataTableColumnHeader column={column} title="Book" />
+  //   ),
+  //   cell: ({ row }) => <div className="w-[80px]">{row.getValue("id")}</div>,
+  //   enableSorting: false,
+  //   enableHiding: false,
+  // },
   {
     accessorKey: "title",
     header: ({ column }) => (
@@ -93,9 +93,6 @@ export const columns: ColumnDef<Book>[] = [
 
       return (
         <div className="flex items-center">
-          {genre.icon && (
-            <genre.icon className="mr-2 h-4 w-4 text-muted-foreground" />
-          )}
           <span>{genre.label}</span>
         </div>
       );
@@ -167,8 +164,8 @@ export const columns: ColumnDef<Book>[] = [
   //     return value.includes(row.getValue(id));
   //   },
   // },
-  {
-    id: "actions",
-    cell: ({ row }) => <DataTableRowActions row={row} />,
-  },
+  // {
+  //   id: "actions",
+  //   cell: ({ row }) => <DataTableRowActions row={row} />,
+  // },
 ];

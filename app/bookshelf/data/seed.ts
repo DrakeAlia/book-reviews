@@ -8,7 +8,7 @@ const books = Array.from({ length: 100 }, () => ({
   title: faker.hacker.phrase().replace(/^./, (letter) => letter.toUpperCase()),
   author: faker.hacker.phrase().replace(/^./, (letter) => letter.toUpperCase()),
   genre: faker.helpers.arrayElement(genres).value,
-  year: faker.number.int({ min: 300, max: 2022 }),
+  // year: faker.number.int({ min: 300, max: 2022 }),
   // rating: faker.number.int({ min: 1, max: 5 }),
   // status: faker.helpers.arrayElement(statuses).value,
   // year: faker.date.past().getFullYear(),
