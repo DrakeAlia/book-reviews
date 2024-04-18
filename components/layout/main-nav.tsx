@@ -44,15 +44,6 @@ export function MainNav() {
         >
           Bookshelf
         </Link>
-        <Link
-          href="/dashboard"
-          className={cn(
-            "transition-colors hover:text-foreground/80",
-            pathname === "/about" ? "text-foreground" : "text-foreground/60"
-          )}
-        >
-          Dashboard
-        </Link>
       </nav>
     </div>
   );

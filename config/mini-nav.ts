@@ -32,11 +32,6 @@ export const miniNavConfig: miniNavConfig = {
           href: "/bookshelf",
           items: [],
         },
-        {
-          title: "My Dashboard",
-          href: "/dashboard",
-          items: [],
-        },
       ],
     },
   ],

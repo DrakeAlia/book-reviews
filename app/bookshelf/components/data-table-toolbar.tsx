@@ -6,9 +6,9 @@ import { Table } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { DataTableViewOptions } from "./data-table-view-options";
-
-import { genres } from "../data/data";
 import { DataTableFacetedFilter } from "./data-table-facted-filter";
+
+import * as actions from "@/app/actions";
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
@@ -34,23 +34,12 @@ export function DataTableToolbar<TData>({
           <DataTableFacetedFilter
             column={table.getColumn("genre")}
             title="Genre"
-            options={genres}
+            options={[
+              { label: "Fiction", value: "fiction" },
+              { label: "Non-fiction", value: "non-fiction" },
+            ]}
           />
         )}
-        {/* {table.getColumn("status") && (
-          <DataTableFacetedFilter
-            column={table.getColumn("status")}
-            title="Status"
-            options={statuses}
-          />
-        )} */}
-        {/* {table.getColumn("priority") && (
-          <DataTableFacetedFilter
-            column={table.getColumn("priority")}
-            title="Priority"
-            options={priorities}
-          />
-        )} */}
         {isFiltered && (
           <Button
             variant="ghost"
