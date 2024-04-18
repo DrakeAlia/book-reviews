@@ -1,4 +1,3 @@
-import ReviewForm  from "../../components/reviews/review-form";
 import ReviewCreateForm from "../../components/reviews/review-create.form";
 
 export default function ReviewPage() {
@@ -8,7 +7,6 @@ export default function ReviewPage() {
         <h1 className="text-2xl font-bold">Your Review</h1>
         <p className="text-sm text-muted-foreground"></p>
       </div>
-      {/* <ReviewForm /> */}
       <ReviewCreateForm />
     </div>
   );

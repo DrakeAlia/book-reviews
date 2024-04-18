@@ -33,5 +33,110 @@
     "author": "Plato",
     "year": 380,
     "genre": "philosophy"
+  },
+  {
+    "id": "BOOK-6",
+    "title": "The Art of War",
+    "author": "Sun Tzu",
+    "year": 500,
+    "genre": "history"
+  },
+  {
+    "id": "BOOK-7",
+    "title": "The Prince",
+    "author": "Niccolò Machiavelli",
+    "year": 1532,
+    "genre": "political"
+  },
+  {
+    "id": "BOOK-8",
+    "title": "The Wealth of Nations",
+    "author": "Adam Smith",
+    "year": 1776,
+    "genre": "economics"
+  },
+  {
+    "id": "BOOK-9",
+    "title": "The Origin of Species",
+    "author": "Charles Darwin",
+    "year": 1859,
+    "genre": "science"
+  },
+  {
+    "id": "BOOK-10",
+    "title": "The Structure of Scientific Revolutions",
+    "author": "Thomas Kuhn",
+    "year": 1962,
+    "genre": "philosophy"
+  },
+  {
+    "id": "BOOK-11",
+    "title": "The Selfish Gene",
+    "author": "Richard Dawkins",
+    "year": 1976,
+    "genre": "science"
+  },
+  {
+    "id": "BOOK-12",
+    "title": "The Blind Watchmaker",
+    "author": "Richard Dawkins",
+    "year": 1986,
+    "genre": "science"
+  },
+  {
+    "id": "BOOK-13",
+    "title": "The Demon-Haunted World",
+    "author": "Carl Sagan",
+    "year": 1995,
+    "genre": "science"
+  },
+  {
+    "id": "BOOK-14",
+    "title": "The Hitchhiker's Guide to the Galaxy",
+    "author": "Douglas Adams",
+    "year": 1979,
+    "genre": "science fiction"
+  },
+  {
+    "id": "BOOK-15",
+    "title": "The Moon is a Harsh Mistress",
+    "author": "Robert A. Heinlein",
+    "year": 1966,
+    "genre": "science fiction"
+  },
+  {
+    "id": "BOOK-16",
+    "title": "The Left Hand of Darkness",
+    "author": "Ursula K. Le Guin",
+    "year": 1969,
+    "genre": "science fiction"
+  },
+  {
+    "id": "BOOK-17",
+    "title": "The Dispossessed",
+    "author": "Ursula K. Le Guin",
+    "year": 1974,
+    "genre": "science fiction"
+  },
+  {
+    "id": "BOOK-18",
+    "title": "The Lathe of Heaven",
+    "author": "Ursula K. Le Guin",
+    "year": 1971,
+    "genre": "science fiction"
+  },
+  {
+    "id": "BOOK-19",
+    "title": "The Left Hand of Darkness",
+    "author": "Ursula K. Le Guin",
+    "year": 1969,
+    "genre": "science fiction"
+  },
+  {
+    "id": "BOOK-20",
+    "title": "The Dispossessed",
+    "author": "Ursula K. Le Guin",
+    "year": 1974,
+    "genre": "science fiction"
   }
 ]

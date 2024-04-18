@@ -7,9 +7,14 @@ import { z } from "zod";
 import { auth } from "@/auth";
 import { db } from "@/db";
 import paths from "@/paths";
-import { use } from "react";
 
 const createReviewSchema = z.object({
+  // genre: z.string({
+  //   required_error: "Please select an genre to display.",
+  // }),
+  genre: z.string().min(1, {
+    message: "Genre must be selected.",
+  }),
   title: z
     .string()
     .min(2, {
@@ -26,9 +31,6 @@ const createReviewSchema = z.object({
     .max(20, {
       message: "Author name must not be longer than 20 characters.",
     }),
-  genre: z.string({
-    required_error: "Please select an genre to display.",
-  }),
   description: z
     .string()
     .min(10, {
@@ -41,9 +43,9 @@ const createReviewSchema = z.object({
 
 interface createReviewFormState {
   errors: {
+    genre?: string[];
     title?: string[];
     author?: string[];
-    genre?: string[];
     description?: string[];
     _form?: string[];
   };
@@ -54,9 +56,9 @@ export async function createReview(
   formData: FormData
 ): Promise<createReviewFormState> {
   const result = createReviewSchema.safeParse({
+    genre: formData.get("genre"),
     title: formData.get("title"),
     author: formData.get("author"),
-    genre: formData.get("genre"),
     description: formData.get("description"),
   });
 
@@ -68,7 +70,6 @@ export async function createReview(
   }
 
   const session = await auth();
-
   if (!session || !session.user) {
     return {
       errors: { _form: ["You must be signed in to create a review."] },
@@ -79,9 +80,9 @@ export async function createReview(
   try {
     review = await db.review.create({
       data: {
+        genre: result.data.genre,
         title: result.data.title,
         author: result.data.author,
-        genre: result.data.genre,
         description: result.data.description,
       },
     });

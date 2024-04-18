@@ -110,6 +110,16 @@ export const genres = [
     icon: ArrowUpIcon,
   },
   {
+    value: "political",
+    label: "Political",
+    icon: ArrowUpIcon,
+  },
+  {
+    value: "economics",
+    label: "Economics",
+    icon: ArrowUpIcon,
+  },
+  {
     value: "philosophy",
     label: "Philosophy",
     icon: ArrowUpIcon,
@@ -242,6 +252,32 @@ export const genres = [
   {
     value: "manhwa",
     label: "Manhwa",
+    icon: ArrowUpIcon,
+  },
+
+  {
+    value: "light novel",
+    label: "Light Novel",
+    icon: ArrowUpIcon,
+  },
+  {
+    value: "webtoon",
+    label: "Webtoon",
+    icon: ArrowUpIcon,
+  },
+  {
+    value: "web novel",
+    label: "Web Novel",
+    icon: ArrowUpIcon,
+  },
+  {
+    value: "fan fiction",
+    label: "Fan Fiction",
+    icon: ArrowUpIcon,
+  },
+  {
+    value: "other",
+    label: "Other",
     icon: ArrowUpIcon,
   },
 ];
