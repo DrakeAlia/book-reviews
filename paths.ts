@@ -2,18 +2,12 @@ const paths = {
   home() {
     return "/";
   },
-  reviewShow(reviewSlug: string) {
-    return `/review/${reviewSlug}`;
-  },
   bookShelfShow() {
     return "/bookshelf";
   },
-  // bookshelfShow(bookShelfSlug: string) {
-  //   return `/bookShelf/${bookShelfSlug}`;
-  // },
-  dashboardShow(dashboardId: string) {
-    return `/dashboard/${dashboardId}`;
-  },
+  bookShow(bookSlug: string) {
+    return `/bookshelf/${bookSlug}`;
+  }
 };
 
 export default paths;

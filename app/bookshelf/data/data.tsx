@@ -70,182 +70,154 @@ import {
 //   },
 // ];
 
-// export const ratings = [
+// export const genres = [
 //   {
-//     label: "⭐️",
-//     value: "1",
-//     icon: ArrowDownIcon,
+//     value: "fantasy",
+//     label: "Fantasy",
 //   },
 //   {
-//     label: "⭐️⭐️",
-//     value: "2",
-//     icon: ArrowRightIcon,
+//     value: "science fiction",
+//     label: "Science Fiction",
 //   },
 //   {
-//     label: "⭐️⭐️⭐️",
-//     value: "3",
-//     icon: ArrowUpIcon,
+//     value: "political",
+//     label: "Political",
 //   },
 //   {
-//     label: "⭐️⭐️⭐️⭐️",
-//     value: "4",
-//     icon: ArrowUpIcon,
+//     value: "economics",
+//     label: "Economics",
 //   },
 //   {
-//     label: "⭐️⭐️⭐️⭐️⭐️",
-//     value: "5",
-//     icon: ArrowUpIcon,
+//     value: "philosophy",
+//     label: "Philosophy",
+//   },
+//   {
+//     value: "mystery",
+//     label: "Mystery",
+//   },
+//   {
+//     value: "thriller",
+//     label: "Thriller",
+//   },
+//   {
+//     value: "romance",
+//     label: "Romance",
+//   },
+//   {
+//     value: "horror",
+//     label: "Horror",
+//   },
+//   {
+//     value: "historical",
+//     label: "Historical",
+//   },
+//   {
+//     value: "historical fiction",
+//     label: "Historical Fiction",
+//   },
+//   {
+//     value: "western",
+//     label: "Western",
+//   },
+//   {
+//     value: "dystopian",
+//     label: "Dystopian",
+//   },
+//   {
+//     value: "contemporary",
+//     label: "Contemporary",
+//   },
+//   {
+//     value: "children",
+//     label: "Children",
+//   },
+//   {
+//     value: "young adult",
+//     label: "Young Adult",
+//   },
+//   {
+//     value: "nonfiction",
+//     label: "Nonfiction",
+//   },
+//   {
+//     value: "biography",
+//     label: "Biography",
+//   },
+//   {
+//     value: "autobiography",
+//     label: "Autobiography",
+//   },
+//   {
+//     value: "cookbook",
+//     label: "Cookbook",
+//   },
+//   {
+//     value: "self-help",
+//     label: "Self-Help",
+//   },
+//   {
+//     value: "travel",
+//     label: "Travel",
+//   },
+//   {
+//     value: "history",
+//     label: "History",
+//   },
+//   {
+//     value: "science",
+//     label: "Science",
+//   },
+//   {
+//     value: "art",
+//     label: "Art",
+//   },
+//   {
+//     value: "poetry",
+//     label: "Poetry",
+//   },
+//   {
+//     value: "essay",
+//     label: "Essay",
+//   },
+//   {
+//     value: "drama",
+//     label: "Drama",
+//   },
+//   {
+//     value: "comics",
+//     label: "Comics",
+//   },
+//   {
+//     value: "graphic novel",
+//     label: "Graphic Novel",
+//   },
+//   {
+//     value: "manga",
+//     label: "Manga",
+//   },
+//   {
+//     value: "manhwa",
+//     label: "Manhwa",
+//   },
+
+//   {
+//     value: "light novel",
+//     label: "Light Novel",
+//   },
+//   {
+//     value: "webtoon",
+//     label: "Webtoon",
+//   },
+//   {
+//     value: "web novel",
+//     label: "Web Novel",
+//   },
+//   {
+//     value: "fan fiction",
+//     label: "Fan Fiction",
+//   },
+//   {
+//     value: "other",
+//     label: "Other",
 //   },
 // ];
-
-export const genres = [
-  {
-    value: "fantasy",
-    label: "Fantasy",
-  },
-  {
-    value: "science fiction",
-    label: "Science Fiction",
-  },
-  {
-    value: "political",
-    label: "Political",
-  },
-  {
-    value: "economics",
-    label: "Economics",
-  },
-  {
-    value: "philosophy",
-    label: "Philosophy",
-  },
-  {
-    value: "mystery",
-    label: "Mystery",
-  },
-  {
-    value: "thriller",
-    label: "Thriller",
-  },
-  {
-    value: "romance",
-    label: "Romance",
-  },
-  {
-    value: "horror",
-    label: "Horror",
-  },
-  {
-    value: "historical",
-    label: "Historical",
-  },
-  {
-    value: "historical fiction",
-    label: "Historical Fiction",
-  },
-  {
-    value: "western",
-    label: "Western",
-  },
-  {
-    value: "dystopian",
-    label: "Dystopian",
-  },
-  {
-    value: "contemporary",
-    label: "Contemporary",
-  },
-  {
-    value: "children",
-    label: "Children",
-  },
-  {
-    value: "young adult",
-    label: "Young Adult",
-  },
-  {
-    value: "nonfiction",
-    label: "Nonfiction",
-  },
-  {
-    value: "biography",
-    label: "Biography",
-  },
-  {
-    value: "autobiography",
-    label: "Autobiography",
-  },
-  {
-    value: "cookbook",
-    label: "Cookbook",
-  },
-  {
-    value: "self-help",
-    label: "Self-Help",
-  },
-  {
-    value: "travel",
-    label: "Travel",
-  },
-  {
-    value: "history",
-    label: "History",
-  },
-  {
-    value: "science",
-    label: "Science",
-  },
-  {
-    value: "art",
-    label: "Art",
-  },
-  {
-    value: "poetry",
-    label: "Poetry",
-  },
-  {
-    value: "essay",
-    label: "Essay",
-  },
-  {
-    value: "drama",
-    label: "Drama",
-  },
-  {
-    value: "comics",
-    label: "Comics",
-  },
-  {
-    value: "graphic novel",
-    label: "Graphic Novel",
-  },
-  {
-    value: "manga",
-    label: "Manga",
-  },
-  {
-    value: "manhwa",
-    label: "Manhwa",
-  },
-
-  {
-    value: "light novel",
-    label: "Light Novel",
-  },
-  {
-    value: "webtoon",
-    label: "Webtoon",
-  },
-  {
-    value: "web novel",
-    label: "Web Novel",
-  },
-  {
-    value: "fan fiction",
-    label: "Fan Fiction",
-  },
-  {
-    value: "other",
-    label: "Other",
-  },
-];

@@ -3,7 +3,7 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { Checkbox } from "@/components/ui/checkbox";
 
-import { genres } from "../data/data";
+// import { genres } from "../data/data";
 import { DataTableColumnHeader } from "./data-table-column-header";
 import { Review } from "@prisma/client";
 import * as actions from "@/app/actions";
@@ -69,27 +69,35 @@ export const columns: ColumnDef<Review>[] = [
       <DataTableColumnHeader column={column} title="Genre" />
     ),
     cell: ({ row }) => {
-      //  return (
-      //    <div className="flex space-x-2">
-      //      <span className="max-w-[500px] truncate font-medium">
-      //        {row.getValue("genre")}
-      //      </span>
-      //    </div>
-      //  );
-      const genre = genres.find(
-        (genre) => genre.value === row.getValue("genre")
-      );
-
-      if (!genre) {
-        return null;
-      }
+      // return (
+      //   <div className="flex space-x-2">
+      //     <span className="max-w-[500px] truncate font-medium">
+      //       {row.getValue("genre")}
+      //     </span>
+      //   </div>
+      // );
+      const genre = row.getValue("genre");
 
       return (
         <div className="flex items-center">
-          <span>{genre.label}</span>
+          <span>{genre as React.ReactNode}</span>
         </div>
       );
     },
+    //   const genre = genres.find(
+    //     (genre) => genre.value === row.getValue("genre")
+    //   );
+
+    //   if (!genre) {
+    //     return null;
+    //   }
+
+    //   return (
+    //     <div className="flex items-center">
+    //       <span>{genre.label}</span>
+    //     </div>
+    //   );
+    // },
 
     filterFn: (row, id, value) => {
       return value.includes(row.getValue(id));
