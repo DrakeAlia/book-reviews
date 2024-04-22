@@ -12,7 +12,7 @@ import { buttonVariants } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "BookShelf",
-  description: "Check out some examples app built using the components.",
+  description: "See the books that you have reviewed as well as what other people's book reviews.",
 };
 
 interface BookShelfLayoutProps {
@@ -29,7 +29,6 @@ export default function BookShelfLayout({ children }: BookShelfLayoutProps) {
           </PageHeaderHeading>
           <PageHeaderHeading className="md:hidden">BookShelf</PageHeaderHeading>
           <PageHeaderDescription>
-            {/* See your books that you have reviewed as well as what other&apos;s book reviews. */}
             See the books that you have reviewed as well as what other
             people&apos;s book reviews.
           </PageHeaderDescription>

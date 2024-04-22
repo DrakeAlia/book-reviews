@@ -1,12 +1,14 @@
 "use client";
 
+import * as actions from "@/app/actions";
+
 import { ColumnDef } from "@tanstack/react-table";
 import { Checkbox } from "@/components/ui/checkbox";
+import { DataTableRowActions } from "./data-table-row-actions";
 
-// import { genres } from "../data/data";
 import { DataTableColumnHeader } from "./data-table-column-header";
 import { Review } from "@prisma/client";
-import * as actions from "@/app/actions";
+import Link from "next/link";
 
 export const columns: ColumnDef<Review>[] = [
   {
@@ -39,11 +41,15 @@ export const columns: ColumnDef<Review>[] = [
       <DataTableColumnHeader column={column} title="Title" />
     ),
     cell: ({ row }) => {
+      const bookId = row.getValue("bookId");
       return (
         <div className="flex space-x-2">
-          <span className="max-w-[500px] truncate font-medium">
+          <Link
+            href={`/bookshelf/${bookId}`}
+            className="max-w-[500px] truncate font-medium"
+          >
             {row.getValue("title")}
-          </span>
+          </Link>
         </div>
       );
     },
@@ -69,13 +75,6 @@ export const columns: ColumnDef<Review>[] = [
       <DataTableColumnHeader column={column} title="Genre" />
     ),
     cell: ({ row }) => {
-      // return (
-      //   <div className="flex space-x-2">
-      //     <span className="max-w-[500px] truncate font-medium">
-      //       {row.getValue("genre")}
-      //     </span>
-      //   </div>
-      // );
       const genre = row.getValue("genre");
 
       return (
@@ -84,23 +83,12 @@ export const columns: ColumnDef<Review>[] = [
         </div>
       );
     },
-    //   const genre = genres.find(
-    //     (genre) => genre.value === row.getValue("genre")
-    //   );
-
-    //   if (!genre) {
-    //     return null;
-    //   }
-
-    //   return (
-    //     <div className="flex items-center">
-    //       <span>{genre.label}</span>
-    //     </div>
-    //   );
-    // },
-
     filterFn: (row, id, value) => {
       return value.includes(row.getValue(id));
     },
+  },
+    {
+    id: "actions",
+    cell: ({ row }) => <DataTableRowActions row={row} />,
   },
 ];
