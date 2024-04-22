@@ -1,17 +1,13 @@
-// app/bookshelf/[bookId].tsx
 import { db } from "@/db";
 import { notFound } from "next/navigation";
-import { Book } from "@prisma/client";
 
-interface BookDetailPageProps {
-  params: {
-    bookId: string;
-  };
+interface BookShoProps {
+  bookId: string;
 }
 
-export default async function BookDetailPage({ params }: BookDetailPageProps) {
+export default async function BookShow({ bookId }: BookShoProps) {
   const book = await db.book.findUnique({
-    where: { id: params.bookId },
+    where: { id: bookId },
   });
 
   if (!book) {

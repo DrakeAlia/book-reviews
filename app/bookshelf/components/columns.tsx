@@ -8,6 +8,7 @@ import { DataTableRowActions } from "./data-table-row-actions";
 
 import { DataTableColumnHeader } from "./data-table-column-header";
 import { Review } from "@prisma/client";
+
 import Link from "next/link";
 
 export const columns: ColumnDef<Review>[] = [
@@ -44,11 +45,10 @@ export const columns: ColumnDef<Review>[] = [
       const bookId = row.getValue("bookId");
       return (
         <div className="flex space-x-2">
-          <Link
-            href={`/bookshelf/${bookId}`}
-            className="max-w-[500px] truncate font-medium"
-          >
+         <Link href={`/bookshelf/${bookId}`}>
+          <div className="max-w-[500px] truncate font-medium">
             {row.getValue("title")}
+            </div>
           </Link>
         </div>
       );
@@ -87,7 +87,7 @@ export const columns: ColumnDef<Review>[] = [
       return value.includes(row.getValue(id));
     },
   },
-    {
+  {
     id: "actions",
     cell: ({ row }) => <DataTableRowActions row={row} />,
   },

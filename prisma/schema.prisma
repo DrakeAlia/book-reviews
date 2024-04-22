@@ -73,14 +73,14 @@ model Review {
 }
 
 model Book {
-  id     String @id @default(cuid())
-  slug   String @unique
-  title  String
-  author String
-  cover  String
-  genre  String
-  userId String
-  bookId String
+  id          String @id @default(cuid())
+  slug        String @unique
+  title       String
+  author      String
+  genre       String
+  description String
+  userId      String
+  bookId      String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
