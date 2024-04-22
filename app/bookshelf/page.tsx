@@ -1,7 +1,6 @@
 import { promises as fs } from "fs";
 import { z } from "zod";
 import path from "path";
-import { bookShelfSchema } from "@/app/bookshelf/data/schema";
 
 import { columns } from "./components/columns";
 import { DataTable } from "./components/data-table";
