@@ -42,12 +42,12 @@ export const columns: ColumnDef<Review>[] = [
       <DataTableColumnHeader column={column} title="Title" />
     ),
     cell: ({ row }) => {
-      const bookId = row.getValue("bookId");
+      const reviewId = row.original.id;
       return (
         <div className="flex space-x-2">
-         <Link href={`/bookshelf/${bookId}`}>
-          <div className="max-w-[500px] truncate font-medium">
-            {row.getValue("title")}
+          <Link href={`/bookshelf/${reviewId}`}>
+            <div className="max-w-[500px] truncate font-medium">
+              {row.getValue("title")}
             </div>
           </Link>
         </div>
