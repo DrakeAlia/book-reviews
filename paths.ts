@@ -5,8 +5,8 @@ const paths = {
   bookShelfShow() {
     return "/bookshelf";
   },
-  bookShow(bookSlug: string) {
-    return `/bookshelf/${bookSlug}`;
+  bookShow(bookId: string) {
+    return `/bookshelf/${bookId}`;
   }
 };
 

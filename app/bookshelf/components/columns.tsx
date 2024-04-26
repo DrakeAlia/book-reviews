@@ -7,7 +7,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { DataTableRowActions } from "./data-table-row-actions";
 
 import { DataTableColumnHeader } from "./data-table-column-header";
-import { Review } from "@prisma/client";
+import type { Review } from "@prisma/client";
 
 import Link from "next/link";
 
