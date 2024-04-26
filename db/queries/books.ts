@@ -1,10 +1,8 @@
-// queries/books.ts
-
 import type { Book, Review } from "@prisma/client";
 import { db } from "@/db";
 
 export type BookWithData = Book & {
-  review: Review | null;
+  review: Review;
   user: { name: string | null };
 };
 

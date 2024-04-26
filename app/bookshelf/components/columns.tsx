@@ -53,6 +53,16 @@ export const columns: ColumnDef<Review>[] = [
         </div>
       );
     },
+    filterFn: (row, id, filterValue) => {
+      const rowValue = row.getValue(id);
+      if (typeof rowValue === "string" && typeof filterValue === "string") {
+        return rowValue.toLowerCase().includes(filterValue.toLowerCase());
+      }
+      if (typeof rowValue === "number" && typeof filterValue === "string") {
+        return rowValue.toString() === filterValue;
+      }
+      return false;
+    },
   },
   {
     accessorKey: "author",

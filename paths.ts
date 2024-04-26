@@ -7,7 +7,7 @@ const paths = {
   },
   bookShow(bookId: string) {
     return `/bookshelf/${bookId}`;
-  }
+  },
 };
 
 export default paths;

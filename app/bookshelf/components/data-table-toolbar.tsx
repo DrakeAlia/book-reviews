@@ -8,8 +8,6 @@ import { Input } from "@/components/ui/input";
 import { DataTableViewOptions } from "./data-table-view-options";
 import { DataTableFacetedFilter } from "./data-table-facted-filter";
 
-import * as actions from "@/app/actions";
-
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
 }
@@ -25,9 +23,26 @@ export function DataTableToolbar<TData>({
         <Input
           placeholder="Filter books..."
           value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("title")?.setFilterValue(event.target.value)
-          }
+          onChange={(event) => {
+            const value = event.target.value;
+            const column = table.getColumn("title");
+
+            if (column) {
+              if (/^\d+$/.test(value)) {
+                // Value is a valid number
+                const numberValue = parseInt(value, 10);
+                column.setFilterValue((old: any) => {
+                  if (old instanceof Array) {
+                    return [numberValue];
+                  }
+                  return numberValue;
+                });
+              } else {
+                // Value is a string
+                column.setFilterValue(value);
+              }
+            }
+          }}
           className="h-8 w-[150px] lg:w-[250px]"
         />
         {table.getColumn("genre") && (

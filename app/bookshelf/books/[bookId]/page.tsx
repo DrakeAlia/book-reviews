@@ -9,21 +9,21 @@ interface BookShowPageProps {
 }
 
 export default function BookShowPage({ params }: BookShowPageProps) {
-    const { bookId } = params;
+  const { bookId } = params;
 
-    return (
-        <section className="container px-6 pt-8 md:pt-12">
+  return (
+    <section className="container px-6 pt-8 md:pt-12">
       <div className="space-y-3">
         <Link
           className="underline decoration-solid"
-            href={paths.bookShelfShow()}
+          href={paths.bookShow(bookId)}
         >
-            Back to Books
+          Back to Books
         </Link>
         <Suspense fallback={<BookShowLoading />}>
-          <BookShow  bookId={bookId} />
+          <BookShow bookId={bookId} />
         </Suspense>
       </div>
     </section>
-    );
+  );
 }

@@ -12,7 +12,8 @@ import { buttonVariants } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "BookShelf",
-  description: "See the books that you have reviewed as well as what other people's book reviews.",
+  description:
+    "See the books that you have reviewed as well as what other people's book reviews.",
 };
 
 interface BookShelfLayoutProps {

@@ -19,7 +19,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Review } from "@prisma/client";
 
-
 interface DataTableRowActionsProps<TData> {
   row: Row<TData>;
 }
