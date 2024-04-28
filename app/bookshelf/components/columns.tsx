@@ -45,7 +45,7 @@ export const columns: ColumnDef<Review>[] = [
       const reviewId = row.original.id;
       return (
         <div className="flex space-x-2">
-          <Link href={`/bookshelf/${reviewId}`}>
+          <Link href={`/bookshelf/books/${reviewId}`}>
             <div className="max-w-[500px] truncate font-medium">
               {row.getValue("title")}
             </div>

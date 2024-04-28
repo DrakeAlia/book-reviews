@@ -6,7 +6,7 @@ const paths = {
     return "/bookshelf";
   },
   bookShow(bookId: string) {
-    return `/bookshelf/${bookId}`;
+    return `/bookshelf/books/${bookId}`;
   },
 };
 

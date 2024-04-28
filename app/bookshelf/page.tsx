@@ -7,6 +7,14 @@ export default async function BookshelfPage() {
   // const books = await db.book.findMany();
   const reviews = await db.review.findMany();
 
+  // console.log("Reviews:", reviews);
+
+  // const book = await db.book.findUnique({
+  //   where: { id: "clv5se73e000297vvt2e6sa3x" },
+  // });
+
+  // console.log("Fetching:", book);
+
   return (
     <>
       <div className="h-full flex-1 flex-col space-y-10 p-6 md:flex">
