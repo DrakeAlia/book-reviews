@@ -1,7 +1,5 @@
 "use client";
 
-import * as actions from "@/app/actions";
-
 import { ColumnDef } from "@tanstack/react-table";
 import { Checkbox } from "@/components/ui/checkbox";
 import { DataTableRowActions } from "./data-table-row-actions";

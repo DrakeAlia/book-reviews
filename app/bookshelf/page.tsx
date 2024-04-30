@@ -4,16 +4,7 @@ import { db } from "@/db";
 
 // This is the Bookshelf page. It displays a list of books that have been reviewed.
 export default async function BookshelfPage() {
-  // const books = await db.book.findMany();
   const reviews = await db.review.findMany();
-
-  // console.log("Reviews:", reviews);
-
-  // const book = await db.book.findUnique({
-  //   where: { id: "clv5se73e000297vvt2e6sa3x" },
-  // });
-
-  // console.log("Fetching:", book);
 
   return (
     <>

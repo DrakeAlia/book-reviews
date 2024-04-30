@@ -1,6 +1,6 @@
 "use server";
 
-import type { Review } from "@prisma/client";
+// import type { Review } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
@@ -8,92 +8,60 @@ import { auth } from "@/auth";
 import { db } from "@/db";
 import paths from "@/paths";
 
+// Schema should now also validate bookId
 const createReviewSchema = z.object({
-  // genre: z.string({
-  //   required_error: "Please select an genre to display.",
-  // }),
-  genre: z.string().min(1, {
-    message: "Genre must be selected.",
-  }),
-  title: z
-    .string()
-    .min(2, {
-      message: "Book's title must be at least 2 characters.",
-    })
-    .max(30, {
-      message: "Book's title must not be longer than 20 characters.",
-    }),
-  author: z
-    .string()
-    .min(2, {
-      message: "Author must be at least 2 characters.",
-    })
-    .max(20, {
-      message: "Author name must not be longer than 20 characters.",
-    }),
+  rating: z.number().int().min(1).max(5),
   description: z
     .string()
-    .min(5, {
-      message: "Review must be at least 10 characters.",
-    })
-    .max(1000, {
-      message: "Review must not be longer than 1000 characters.",
-    }),
+    .min(5, "Review must be at least 10 characters.")
+    .max(1000, "Review must not be longer than 1000 characters."),
+  bookId: z.string(), // Assuming bookId is a string ID
 });
 
-interface createReviewFormState {
+interface CreateReviewFormState {
   errors: {
-    genre?: string[];
-    title?: string[];
-    author?: string[];
     description?: string[];
+    rating?: string[];
+    bookId?: string[];
     _form?: string[];
   };
 }
 
 export async function createReview(
-  formState: createReviewFormState,
   formData: FormData
-): Promise<createReviewFormState> {
+): Promise<CreateReviewFormState> {
   const result = createReviewSchema.safeParse({
-    genre: formData.get("genre"),
-    title: formData.get("title"),
-    author: formData.get("author"),
     description: formData.get("description"),
+    bookId: formData.get("bookId"),
   });
 
-  console.log(result);
-
   if (!result.success) {
-    console.log(result.error.flatten().fieldErrors);
     return { errors: result.error.flatten().fieldErrors };
   }
-
+  
   const session = await auth();
-  if (!session || !session.user) {
-    return {
-      errors: { _form: ["You must be signed in to create a review."] },
-    };
-  }
+ if (!session || !session.user || !session.user.id) {
+   return {
+     errors: { _form: ["You must be signed in to create a review."] },
+   };
+ }
 
-  let review: Review;
   try {
-    review = await db.review.create({
+    const review = await db.review.create({
       data: {
-        genre: result.data.genre,
-        title: result.data.title,
-        author: result.data.author,
         description: result.data.description,
+        rating: result.data.rating,
+        bookId: result.data.bookId,
+        userId: session.user.id, // Ensure the user is authenticated and ID is included
       },
     });
+
+    revalidatePath(paths.home()); // Adjust as necessary
+    redirect(paths.reviewShow(result.data.bookId, review.id)); // Redirect to the new review
   } catch (err: unknown) {
     if (err instanceof Error) {
       return { errors: { _form: [err.message] } };
-    } else {
-      return { errors: { _form: ["Failed to create review."] } };
     }
+    return { errors: { _form: ["Failed to create review."] } };
   }
-
-  revalidatePath(paths.home());
-  redirect(paths.bookShelfShow());
 }

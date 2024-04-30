@@ -1,5 +1,5 @@
-import BookShow from "@/components/books/book-show";
-import BookShowLoading from "@/components/books/book-show-loading";
+import BookShow from "@/components/book/book-show";
+import BookShowLoading from "@/components/book/book-show-loading";
 import { Suspense } from "react";
 
 interface BookShowPageProps {
