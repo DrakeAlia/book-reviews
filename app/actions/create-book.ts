@@ -1,6 +1,6 @@
 "use server";
 
-// import type { Book } from "@prisma/client";
+import type { Book } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
@@ -51,8 +51,9 @@ export async function createBook(
   // Now we can be sure that userId is not undefined
   const userId = session.user.id;
 
+  let book: Book;
   try {
-    const book = await db.book.create({
+    book = await db.book.create({
       data: {
         title: result.data.title,
         author: result.data.author,
@@ -60,10 +61,9 @@ export async function createBook(
         userId: session.user.id, // Ensuring the user ID is passed
       },
     });
-
-    revalidatePath(paths.home());
-    redirect(paths.bookShow(book.id));
   } catch (error) {
     return { errors: { _form: ["An error occurred. Please try again."] } };
   }
+  revalidatePath(paths.home());
+  redirect(paths.bookShow(book.id));
 }
