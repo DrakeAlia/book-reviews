@@ -1,6 +1,6 @@
 "use server";
 
-// import type { Book } from "@prisma/client";
+import type { Book } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
@@ -30,6 +30,7 @@ interface CreateBookFormState {
 }
 
 export async function createBook(
+  formState: CreateBookFormState,
   formData: FormData
 ): Promise<CreateBookFormState> {
   const result = createBookSchema.safeParse({
@@ -43,27 +44,28 @@ export async function createBook(
   }
 
   const session = await auth();
-
   if (!session || !session.user || !session.user.id) {
-    return { errors: { _form: ["You must be signed in to create a book."] } };
+    return {
+      errors: { _form: ["You must be signed in to create a book."] },
+    };
   }
 
-  // Now we can be sure that userId is not undefined
-  const userId = session.user.id;
-
+  let book: Book;
   try {
-    const book = await db.book.create({
+    book = await db.book.create({
       data: {
         title: result.data.title,
         author: result.data.author,
         genre: result.data.genre,
-        userId: session.user.id, // Ensuring the user ID is passed
+        userId: session.user.id,
       },
     });
-
     revalidatePath(paths.home());
     redirect(paths.bookShow(book.id));
-  } catch (error) {
-    return { errors: { _form: ["An error occurred. Please try again."] } };
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      return { errors: { _form: [err.message] } };
+    }
+    return { errors: { _form: ["Failed to create book."] } };
   }
 }

@@ -1,6 +1,6 @@
 "use server";
 
-// import type { Review } from "@prisma/client";
+import type { Review } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
@@ -28,36 +28,38 @@ interface CreateReviewFormState {
 }
 
 export async function createReview(
+  formState: CreateReviewFormState,
   formData: FormData
 ): Promise<CreateReviewFormState> {
   const result = createReviewSchema.safeParse({
     description: formData.get("description"),
+    rating: Number(formData.get("rating")),
     bookId: formData.get("bookId"),
   });
 
   if (!result.success) {
     return { errors: result.error.flatten().fieldErrors };
   }
-  
-  const session = await auth();
- if (!session || !session.user || !session.user.id) {
-   return {
-     errors: { _form: ["You must be signed in to create a review."] },
-   };
- }
 
+  const session = await auth();
+  if (!session || !session.user || !session.user.id) {
+    return {
+      errors: { _form: ["You must be signed in to create a review."] },
+    };
+  }
+
+  let review: Review;
   try {
-    const review = await db.review.create({
+    review = await db.review.create({
       data: {
         description: result.data.description,
         rating: result.data.rating,
         bookId: result.data.bookId,
-        userId: session.user.id, // Ensure the user is authenticated and ID is included
+        userId: session.user.id,
       },
     });
-
-    revalidatePath(paths.home()); // Adjust as necessary
-    redirect(paths.reviewShow(result.data.bookId, review.id)); // Redirect to the new review
+    revalidatePath(paths.home());
+    redirect(paths.reviewShow(result.data.bookId, review.id));
   } catch (err: unknown) {
     if (err instanceof Error) {
       return { errors: { _form: [err.message] } };

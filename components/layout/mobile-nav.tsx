@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import { miniNavConfig } from "@/config/mini-nav";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import { Icons } from "@/components/ui/icons";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -31,35 +30,6 @@ export function MobileNav() {
             width={50}
             height={50}
           />
-          {/* <svg
-            strokeWidth="1.5"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-          >
-            <path
-              d="M3 5H11"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            ></path>
-            <path
-              d="M3 12H16"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            ></path>
-            <path
-              d="M3 19H21"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            ></path>
-          </svg> */}
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </SheetTrigger>
@@ -69,7 +39,6 @@ export function MobileNav() {
           className="flex items-center"
           onOpenChange={setOpen}
         >
-          {/* <Icons.logo className="mr-2 h-4 w-4" /> */}
           <Image
             className="h-9 w-9 mr-3 rounded-lg"
             src="/logo.png"
