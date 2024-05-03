@@ -23,6 +23,11 @@ export const miniNavConfig: miniNavConfig = {
       title: "Getting Started",
       items: [
         {
+          title: "Create Book",
+          href: "/book",
+          items: [],
+        },
+        {
           title: "Create Review",
           href: "/review",
           items: [],

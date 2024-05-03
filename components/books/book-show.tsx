@@ -9,7 +9,7 @@ interface BookShowProps {
 export default async function BookShow({ bookId }: BookShowProps) {
   console.log("Book ID ✅:", bookId);
   try {
-    const book = await db.review.findUnique({
+    const book = await db.book.findUnique({
       where: { id: bookId },
     });
 
@@ -22,14 +22,9 @@ export default async function BookShow({ bookId }: BookShowProps) {
 
     return (
       <div>
-        {book && (
-          <>
-            <h1>{book.title}</h1>
-            <p>Author: {book.author}</p>
-            <p>Genre: {book.genre}</p>
-            <p>Description: {book.description}</p>
-          </>
-        )}
+        <h1>{book.title}</h1>
+        <p>{book.author}</p>
+        <p>{book.genre}</p>
       </div>
     );
   } catch (error) {

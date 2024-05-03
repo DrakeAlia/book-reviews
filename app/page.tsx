@@ -26,6 +26,9 @@ export default function HomePage() {
           <Link href="/review" className={cn(buttonVariants())}>
             Start Review
           </Link>
+          <Link href="/book" className={cn(buttonVariants())}>
+            Create book
+          </Link>
           <Link
             href="/bookshelf"
             className={cn(buttonVariants({ variant: "outline" }))}
