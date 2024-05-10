@@ -60,12 +60,14 @@ export async function createBook(
         userId: session.user.id,
       },
     });
-    revalidatePath(paths.home());
-    redirect(paths.createBook());
   } catch (err: unknown) {
     if (err instanceof Error) {
+      console.log(err);
       return { errors: { _form: [err.message] } };
     }
     return { errors: { _form: ["Failed to create book."] } };
   }
+  console.log("👍🏻");
+  revalidatePath(paths.createBook());
+  redirect(paths.bookShow(book.id));
 }

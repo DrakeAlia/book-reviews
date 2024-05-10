@@ -2,15 +2,18 @@ const paths = {
   home() {
     return "/";
   },
+  createBook() {
+    return "/book";
+  },
   bookShelfShow() {
     return "/bookshelf"; // General path to the bookshelf
   },
   bookShow(bookId: string) {
     return `/bookshelf/books/${bookId}`; // Path to a specific book
   },
-  createBook() {
-    return "/bookshelf/create"; // Path to the page/form where a new book can be created
-  },
+  // createBook() {
+  //   return "/bookshelf/create"; // Path to the page/form where a new book can be created
+  // },
   reviewShow(bookId: string, reviewId: string) {
     return `/bookshelf/books/${bookId}/reviews/${reviewId}`; // Path to a specific review
   },

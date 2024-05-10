@@ -47,24 +47,26 @@ export default function BookCreateForm() {
             </SelectContent>
           </Select>
           <span className="text-red-500">
-            {formState.errors.genre?.join(", ")}
+            {formState?.errors.genre?.join(", ")}
           </span>
         </div>
         <div className="grid gap-2">
           <Label htmlFor="title">Title</Label>
           <Input id="title" name="title" placeholder="Title of the book" />
           <span className="text-red-500">
-            {formState.errors.title?.join(", ")}
+            {formState?.errors.title?.join(", ")}
           </span>
         </div>
         <div className="grid gap-2">
           <Label htmlFor="author">Author</Label>
           <Input id="author" name="author" placeholder="Author name" />
           <span className="text-red-500">
-            {formState.errors.author?.join(", ")}
+            {formState?.errors.author?.join(", ")}
           </span>
         </div>
-        <div className="text-red-500">{formState.errors._form?.join(", ")}</div>
+        <div className="text-red-500">
+          {formState?.errors._form?.join(", ")}
+        </div>
       </div>
       <FormButton>Create Book</FormButton>
     </form>
