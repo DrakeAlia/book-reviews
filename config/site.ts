@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "BookBlend",
+  name: "InfinitePages",
   url: "https://book-reviews-orcin.vercel.app/",
   description: "Write a review or rate a book.",
   links: {

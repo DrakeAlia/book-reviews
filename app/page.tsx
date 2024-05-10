@@ -15,7 +15,8 @@ export default function HomePage() {
       {/* <Hero /> */}
       <PageHeader>
         <PageHeaderHeading>
-          Welcome to <span className="text-primary font-bold">BookBlend</span>
+          Welcome to{" "}
+          <span className="text-primary font-bold">InfinitePages</span>
         </PageHeaderHeading>
         <PageHeaderDescription>
           Here you can write a review for books that you have read and rate

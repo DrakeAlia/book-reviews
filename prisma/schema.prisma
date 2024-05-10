@@ -71,6 +71,9 @@ model Book {
   reviews Review[] // One-to-many relationship with Review
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade) // Renamed from createdBy
+
+  @@index([title])
+  @@index([author])
 }
 
 model Review {
@@ -86,4 +89,6 @@ model Review {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade) // Renamed from createdBy
   book Book @relation(fields: [bookId], references: [id])
+
+  @@unique([userId, bookId])
 }

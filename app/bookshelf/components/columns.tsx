@@ -6,10 +6,11 @@ import { DataTableRowActions } from "./data-table-row-actions";
 
 import { DataTableColumnHeader } from "./data-table-column-header";
 import type { Review } from "@prisma/client";
+import type { Book } from "@prisma/client";
 
 import Link from "next/link";
 
-export const columns: ColumnDef<Review>[] = [
+export const columns: ColumnDef<Book>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -40,10 +41,10 @@ export const columns: ColumnDef<Review>[] = [
       <DataTableColumnHeader column={column} title="Title" />
     ),
     cell: ({ row }) => {
-      const reviewId = row.original.id;
+      const bookId = row.original.id;
       return (
         <div className="flex space-x-2">
-          <Link href={`/bookshelf/books/${reviewId}`}>
+          <Link href={`/bookshelf/books/${bookId}`}>
             <div className="max-w-[500px] truncate font-medium">
               {row.getValue("title")}
             </div>

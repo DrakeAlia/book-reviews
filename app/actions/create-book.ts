@@ -61,7 +61,7 @@ export async function createBook(
       },
     });
     revalidatePath(paths.home());
-    redirect(paths.bookShow(book.id));
+    redirect(paths.createBook());
   } catch (err: unknown) {
     if (err instanceof Error) {
       return { errors: { _form: [err.message] } };
