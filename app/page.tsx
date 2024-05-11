@@ -24,9 +24,6 @@ export default function HomePage() {
           reviews will be visible to other users.
         </PageHeaderDescription>
         <PageActions>
-          <Link href="/review" className={cn(buttonVariants())}>
-            Start Review
-          </Link>
           <Link href="/book" className={cn(buttonVariants())}>
             Create book
           </Link>

@@ -19,3 +19,21 @@ export default function BookShowPage({ params }: BookShowPageProps) {
     </section>
   );
 }
+
+//   return (
+//     <div className="h-full flex-1 flex-col space-y-10 p-6 md:flex">
+//       <div className="flex items-center justify-between space-y-2">
+//         <div>
+//           <h2 className="text-2xl font-bold tracking-tight">Book</h2>
+//           <section className="container px-6 pt-8 md:pt-12">
+//             <div className="space-y-3">
+//               <Suspense fallback={<BookShowLoading />}>
+//                 <BookShow bookId={bookId} />
+//               </Suspense>
+//             </div>
+//           </section>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }

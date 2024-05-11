@@ -58,12 +58,13 @@ export async function createReview(
         userId: session.user.id,
       },
     });
-    revalidatePath(paths.home());
-    redirect(paths.reviewShow(result.data.bookId, review.id));
   } catch (err: unknown) {
     if (err instanceof Error) {
       return { errors: { _form: [err.message] } };
     }
     return { errors: { _form: ["Failed to create review."] } };
   }
+  console.log("👍🏻 review");
+  revalidatePath(paths.home());
+  redirect(paths.reviewShow(review.bookId, review.id));
 }

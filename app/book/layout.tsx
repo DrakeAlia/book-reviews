@@ -16,7 +16,7 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
     <>
       <div className="space-y-6 p-10 pb-16 md:block">
         <div className="space-y-0.5">
-          <h2 className="text-2xl font-bold tracking-tight">Read Book</h2>
+          <h2 className="text-2xl font-bold tracking-tight">Create a Book</h2>
           <p className="text-muted-foreground">
             Create a book that you have read and can be reviewed.
           </p>

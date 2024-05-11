@@ -3,7 +3,10 @@ const paths = {
     return "/";
   },
   createBook() {
-    return "/book";
+    return "/book"; // Path to the page/form where a new book can be added
+  },
+  createReview(bookId: string) {
+    return `/bookshelf/books/${bookId}/review/`; // Path to the page/form where a new review can be added
   },
   bookShelfShow() {
     return "/bookshelf"; // General path to the bookshelf
@@ -11,14 +14,8 @@ const paths = {
   bookShow(bookId: string) {
     return `/bookshelf/books/${bookId}`; // Path to a specific book
   },
-  // createBook() {
-  //   return "/bookshelf/create"; // Path to the page/form where a new book can be created
-  // },
   reviewShow(bookId: string, reviewId: string) {
     return `/bookshelf/books/${bookId}/reviews/${reviewId}`; // Path to a specific review
-  },
-  createReview(bookId: string) {
-    return `/bookshelf/books/${bookId}/reviews/create`; // Path to the page/form where a new review can be added for a specific book
   },
 };
 

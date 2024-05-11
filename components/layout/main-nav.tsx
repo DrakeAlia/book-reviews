@@ -36,15 +36,6 @@ export function MainNav() {
           Book
         </Link>
         <Link
-          href="/review"
-          className={cn(
-            "transition-colors hover:text-foreground/80",
-            pathname === "/review" ? "text-foreground" : "text-foreground/60"
-          )}
-        >
-          Review
-        </Link>
-        <Link
           href="/bookshelf"
           className={cn(
             "transition-colors hover:text-foreground/80",
