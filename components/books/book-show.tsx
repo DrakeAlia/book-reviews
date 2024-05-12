@@ -4,23 +4,6 @@ import { notFound } from "next/navigation";
 import * as React from "react";
 
 import { Button, buttonVariants } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -52,46 +35,17 @@ export default async function BookShow({ bookId }: BookShowProps) {
             <p className="text-md italic mb-3">Genre: {book.genre}</p>
           </div>
         </div>
-        {/* <Link href="/review" className={cn(buttonVariants(), "rounded-[6px]")}>
-          Review book
-        </Link> */}
         <Link
-          href={`/bookshelf/books/${book.id}/review`}
+          href={`/bookshelf/books/${bookId}/reviews`}
           className={cn(buttonVariants())}
         >
-          <Button>Review book</Button>
+          Review book
         </Link>
       </div>
     );
   } catch (error) {
     console.error("Error fetching book:", error);
+    console.log("Book ID:", bookId);
     return notFound();
   }
 }
-
-// return (
-//   <Card className="w-[350px]">
-//     <CardHeader>
-//       <CardTitle>Book: {book.title}</CardTitle>
-//       <CardDescription>Book created by {book.author}</CardDescription>
-//     </CardHeader>
-//     <CardContent>
-//       <form>
-//         <div className="grid w-full items-center gap-4">
-//           <div className="flex flex-col space-y-1.5">
-//             <Label htmlFor="name">Name</Label>
-//             <Input id="name" placeholder="Name of your project" />
-//           </div>
-//           <div className="flex flex-col space-y-1.5">
-//             <Label htmlFor="framework">Framework</Label>
-//             <Select>
-//               <SelectTrigger id="framework">
-//                 <SelectValue placeholder="Select" />
-//               </SelectTrigger>
-//             </Select>
-//           </div>
-//         </div>
-//       </form>
-//     </CardContent>
-//   </Card>
-// );

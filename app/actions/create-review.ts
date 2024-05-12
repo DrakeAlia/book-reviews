@@ -65,6 +65,6 @@ export async function createReview(
     return { errors: { _form: ["Failed to create review."] } };
   }
   console.log("👍🏻 review");
-  revalidatePath(paths.home());
+  revalidatePath(paths.bookShow(review.bookId));
   redirect(paths.reviewShow(review.bookId, review.id));
 }
