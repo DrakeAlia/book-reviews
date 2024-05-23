@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-
 import { Separator } from "@/components/ui/separator";
 
 export const metadata: Metadata = {
@@ -7,18 +6,19 @@ export const metadata: Metadata = {
   description: "Create a book review and share your thoughts with the world.",
 };
 
-interface SettingsLayoutProps {
+interface ReviewLayoutProps {
   children: React.ReactNode;
+  bookId: string;
 }
 
-export default function SettingsLayout({ children }: SettingsLayoutProps) {
+export default function ReviewLayout({ children }: ReviewLayoutProps) {
   return (
     <>
       <div className="space-y-6 p-10 pb-16 md:block">
         <div className="space-y-0.5">
-          <h2 className="text-2xl font-bold tracking-tight">Review Book</h2>
+          <h2 className="text-2xl font-bold tracking-tight">Review for Book</h2>
           <p className="text-muted-foreground">
-            Create a book review and share your thoughts with the world.
+            Create review for this book and share your thoughts with the world.
           </p>
         </div>
         <Separator className="my-6" />

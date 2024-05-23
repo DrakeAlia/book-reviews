@@ -15,11 +15,25 @@ export default function ReviewCreateForm() {
     <form action={action}>
       <div className="grid gap-4 py-4">
         <div className="grid gap-2">
+          <Label htmlFor="rating">Rating</Label>
+          <input
+            id="rating"
+            name="rating"
+            type="number"
+            min="1"
+            max="5"
+            placeholder="Rate this book out of 5."
+          />
+          <span className="text-red-500">
+            {formState.errors.rating?.join(", ")}
+          </span>
+        </div>
+        <div className="grid gap-2">
           <Label htmlFor="description">Review</Label>
           <Textarea
             id="description"
             name="description"
-            placeholder="Add your review here"
+            placeholder="Write your review here."
           />
           <span className="text-red-500">
             {formState.errors.description?.join(", ")}

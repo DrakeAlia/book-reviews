@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   description: "Create a book that you have read and can be reviewed.",
 };
 
-interface SettingsLayoutProps {
+interface BookLayoutProps {
   children: React.ReactNode;
 }
 
-export default function SettingsLayout({ children }: SettingsLayoutProps) {
+export default function BookLayout({ children }: BookLayoutProps) {
   return (
     <>
       <div className="space-y-6 p-10 pb-16 md:block">

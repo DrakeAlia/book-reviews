@@ -10,10 +10,10 @@ import paths from "@/paths";
 
 // Schema should now also validate bookId
 const createReviewSchema = z.object({
-  rating: z.number().int().min(1).max(5),
+  rating: z.number().int().min(1, "Must have a rating for this book").max(5),
   description: z
     .string()
-    .min(5, "Review must be at least 10 characters.")
+    .min(5, "Review must be at least 10 characters before submitting")
     .max(1000, "Review must not be longer than 1000 characters."),
   bookId: z.string(), // Assuming bookId is a string ID
 });
@@ -31,6 +31,8 @@ export async function createReview(
   formState: CreateReviewFormState,
   formData: FormData
 ): Promise<CreateReviewFormState> {
+  console.log("Test Test");
+
   const result = createReviewSchema.safeParse({
     description: formData.get("description"),
     rating: Number(formData.get("rating")),
@@ -38,8 +40,11 @@ export async function createReview(
   });
 
   if (!result.success) {
+    console.log("Result:", result.error.flatten().fieldErrors);
     return { errors: result.error.flatten().fieldErrors };
   }
+
+  console.log("Result Data:", result.data);
 
   const session = await auth();
   if (!session || !session.user || !session.user.id) {
@@ -48,8 +53,11 @@ export async function createReview(
     };
   }
 
+  console.log("Session:", session);
+
   let review: Review;
   try {
+    console.log("Creating review...");
     review = await db.review.create({
       data: {
         description: result.data.description,
@@ -59,6 +67,7 @@ export async function createReview(
       },
     });
   } catch (err: unknown) {
+    console.log(err);
     if (err instanceof Error) {
       return { errors: { _form: [err.message] } };
     }
