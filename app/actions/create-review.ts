@@ -32,6 +32,8 @@ export async function createReview(
   formData: FormData
   // bookId: string
 ): Promise<CreateReviewFormState> {
+  console.log("Form Data:", Object.fromEntries(formData));
+
   const result = createReviewSchema.safeParse({
     description: formData.get("description"),
     rating: Number(formData.get("rating")),
@@ -39,11 +41,11 @@ export async function createReview(
   });
 
   if (!result.success) {
-    console.log("Result:", result.error.flatten().fieldErrors);
+    console.log("Validation Error:", result.error.flatten().fieldErrors);
     return { errors: result.error.flatten().fieldErrors };
   }
 
-  console.log("Result Data:", result.data);
+  console.log("Parsed Form Data:", result.data);
 
   const session = await auth();
 
@@ -59,6 +61,8 @@ export async function createReview(
       id: result.data.bookId,
     },
   });
+
+  console.log("Found Book:", book);
 
   if (!book) {
     return { errors: { _form: ["Book not found."] } };

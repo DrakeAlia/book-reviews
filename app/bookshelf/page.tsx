@@ -36,7 +36,11 @@ export default async function BookshelfPage() {
               A list of books with their details and reviews.
             </p>
           </div>
-          <div className="flex items-center space-x-2"></div>
+          <div className="flex items-center space-x-2">
+            <Link href="/book" className={cn(buttonVariants())}>
+              Add a book
+            </Link>
+          </div>
         </div>
         <DataTable data={books} columns={columns} />
       </div>

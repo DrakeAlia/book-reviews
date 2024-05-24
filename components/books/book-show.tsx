@@ -48,12 +48,12 @@ export default async function BookShow({ bookId }: BookShowProps) {
           <ReviewShow bookId={bookId} />
         </div> */}
         <div>
-          <ReviewList />
+          <ReviewList  />
         </div>
       </div>
       <div className="flex justify-center space-x-4 mt-4">
         <Link
-          href={`/bookshelf/books/${bookId}/reviews`}
+          href={`/bookshelf/books/${bookId}/review`}
           className={cn(buttonVariants())}
         >
           Review book

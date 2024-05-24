@@ -12,6 +12,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "../ui/button";
 
 export default function BookCreateForm() {
   const [formState, action] = useFormState(actions.createBook, {
@@ -68,7 +71,15 @@ export default function BookCreateForm() {
           {formState?.errors._form?.join(", ")}
         </div>
       </div>
-      <FormButton>Create Book</FormButton>
+      <div className="flex justify-between space-x-4 mt-4">
+        <FormButton>Create Book</FormButton>
+        <Link
+          href="/bookshelf"
+          className={cn(buttonVariants({ variant: "outline" }))}
+        >
+          Back to Bookshelf
+        </Link>
+      </div>
     </form>
   );
 }

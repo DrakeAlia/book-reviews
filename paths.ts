@@ -12,7 +12,7 @@ const paths = {
     return `/bookshelf/books/${bookId}`; // Path to a specific book
   },
   createReviewPath(bookId: string) {
-    return `/bookshelf/books/${bookId}/reviews`; // Path to the page/form where a new review can be added for a specific book
+    return `/bookshelf/books/${bookId}/review`; // Path to the page/form where a new review can be added for a specific book
   },
   // reviewShowPath(bookId: string, reviewId: string) {
   //   return `/bookshelf/books/${bookId}/reviews/${reviewId}`; // Path to a specific review

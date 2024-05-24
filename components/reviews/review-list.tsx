@@ -1,15 +1,4 @@
 import { db } from "@/db";
-// import paths from "@/paths";
-// import {
-//   Table,
-//   TableBody,
-//   TableCaption,
-//   TableCell,
-//   TableFooter,
-//   TableHead,
-//   TableHeader,
-//   TableRow,
-// } from "../ui/table";
 
 export default async function ReviewList() {
   const reviews = await db.review.findMany();

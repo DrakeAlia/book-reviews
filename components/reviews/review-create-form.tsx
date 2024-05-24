@@ -8,21 +8,20 @@ import { Textarea } from "../ui/textarea";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
-// interface ReviewCreateFormProps {
-//   bookId: string;
-// }
+interface ReviewCreateFormProps {
+  bookId: string;
+}
 
-export default function ReviewCreateForm() {
+export default function ReviewCreateForm({ bookId }: ReviewCreateFormProps) {
   const [formState, action] = useFormState(actions.createReview, {
     errors: {},
   });
 
-  // Grab the book id from the url
-  const bookIdUrl = window.location.pathname;
-  const bookIdTest = bookIdUrl.split("/")[3];
-  console.log(bookIdTest);
-  const bookId = bookIdTest;
+  console.log("bookId from prop:", bookId);
+
+  // <div>{bookId ? <ReviewCreateForm /> : <div>No book ID found</div>}</div>;
 
   return (
     <form action={action}>
@@ -52,25 +51,21 @@ export default function ReviewCreateForm() {
             {formState.errors.description?.join(", ")}
           </span>
         </div>
-        <div className="grid gap-2">
-          <Label htmlFor="description">book id</Label>
-          <Textarea id="bookId" name="bookId" value={bookIdTest} />
-          <span className="text-red-500">
-            {formState.errors.description?.join(", ")}
-          </span>
-        </div>
         <span className="text-red-500">
           {formState.errors._form?.join(", ")}
         </span>
       </div>
+      <input type="hidden" name="bookId" value={bookId ?? ""} />
       <div className="flex justify-between space-x-4 mt-4">
         <FormButton>Create Review</FormButton>
-        <Link
-          href={`/bookshelf/books/${bookId}`}
-          className={cn(buttonVariants({ variant: "outline" }))}
-        >
-          Back to Book
-        </Link>
+        {bookId && (
+          <Link
+            href={`/bookshelf/books/${bookId}`}
+            className={cn(buttonVariants({ variant: "outline" }))}
+          >
+            Back to Book
+          </Link>
+        )}
         <Link
           href="/bookshelf"
           className={cn(buttonVariants({ variant: "outline" }))}

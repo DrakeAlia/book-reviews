@@ -14,7 +14,7 @@ export default function ReviewPage({ params }: ReviewPageProps) {
         <h1 className="text-2xl font-bold">What did you think of this book?</h1>
         <p className="text-sm text-muted-foreground"></p>
       </div>
-      <ReviewCreateForm />
+      <ReviewCreateForm bookId={bookId} />
     </div>
   );
 }
