@@ -68,6 +68,6 @@ export async function createBook(
     return { errors: { _form: ["Failed to create book."] } };
   }
   console.log("👍🏻 book");
-  revalidatePath(paths.createBook());
-  redirect(paths.bookShow(book.id));
+  revalidatePath(paths.createBookPath());
+  redirect(paths.bookShowPath(book.id));
 }

@@ -6,6 +6,8 @@ import * as React from "react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import ReviewList from "../reviews/review-list";
+// import ReviewShow from "../reviews/review-show";
 
 interface BookShowProps {
   bookId: string;
@@ -14,38 +16,55 @@ interface BookShowProps {
 // The BookShow component fetches a book by its ID and displays its details
 export default async function BookShow({ bookId }: BookShowProps) {
   console.log("Book ID ✅:", bookId);
-  try {
-    const book = await db.book.findUnique({
-      where: { id: bookId },
-    });
 
-    console.log("Fetching:", book);
+  const book = await db.book.findUnique({
+    where: { id: bookId },
+  });
 
-    if (!book) {
-      console.error("No book found with ID:", bookId);
-      return notFound();
-    }
+  console.log("Fetching:", book);
 
-    return (
-      <div className="container mx-auto p-6">
-        <div className="bg-yellow shadow-lg rounded-lg p-4 lg:p-8">
-          <div className="mt-4 lg:mt-0 lg:ml-4">
-            <h1 className="text-3xl font-bold mb-2">{book.title}</h1>
-            <p className="text-xl mb-1">Author: {book.author}</p>
-            <p className="text-md italic mb-3">Genre: {book.genre}</p>
-          </div>
+  if (!book) {
+    console.error("No book found with ID:", bookId);
+    return notFound();
+  }
+
+  return (
+    <div className="container mx-auto p-6">
+      <div className="bg-yellow shadow-lg rounded-lg p-4 lg:p-8">
+        <div className="mt-4 lg:mt-0 lg:ml-4">
+          <h1 className="text-4xl font-bold mb-2">
+            <span className="text-primary font-bold">{book.title}</span>
+          </h1>
+          <p className="text-xl mb-1 font-semibold">
+            Author:
+            <span className="text-primary font-bold"> {book.author}</span>
+          </p>
+          <p className="text-md mb-3 font-medium ">
+            Genre:
+            <span className="text-primary font-bold"> {book.genre}</span>
+          </p>
         </div>
+        {/* <div>
+          <ReviewShow bookId={bookId} />
+        </div> */}
+        <div>
+          <ReviewList />
+        </div>
+      </div>
+      <div className="flex justify-center space-x-4 mt-4">
         <Link
           href={`/bookshelf/books/${bookId}/reviews`}
           className={cn(buttonVariants())}
         >
           Review book
         </Link>
+        <Link
+          href="/bookshelf"
+          className={cn(buttonVariants({ variant: "outline" }))}
+        >
+          Back to bookshelf
+        </Link>
       </div>
-    );
-  } catch (error) {
-    console.error("Error fetching book:", error);
-    console.log("Book ID:", bookId);
-    return notFound();
-  }
+    </div>
+  );
 }

@@ -1,7 +1,6 @@
 import type { Book, Review } from "@prisma/client";
 import { db } from "@/db";
 
-
 // export type BookWithData = Book & {
 //   review: Review;
 //   user: { name: string | null };
@@ -14,15 +13,15 @@ import { db } from "@/db";
 //   });
 // }
 
-export function fetchBookById(bookId: string) {
-  // Simulating the availability of review ID for demonstration purposes
-  const reviewId = "review123";
+// export function fetchBookById(bookId: string) {
+//   // Simulating the availability of review ID for demonstration purposes
+//   const reviewId = "review123";
 
-  if (reviewId) {
-    console.log("Review ID is present:", reviewId);
-  } else {
-    console.log("Review ID is missing or undefined");
-  }
+//   if (reviewId) {
+//     console.log("Review ID is present:", reviewId);
+//   } else {
+//     console.log("Review ID is missing or undefined");
+//   }
 
-  return null;
-}
+//   return null;
+// }

@@ -8,7 +8,7 @@ import { auth } from "@/auth";
 import { db } from "@/db";
 import paths from "@/paths";
 
-// Schema should now also validate bookId
+// The createReviewSchema defines the shape of the data required to create a review
 const createReviewSchema = z.object({
   rating: z.number().int().min(1, "Must have a rating for this book").max(5),
   description: z
@@ -30,9 +30,8 @@ interface CreateReviewFormState {
 export async function createReview(
   formState: CreateReviewFormState,
   formData: FormData
+  // bookId: string
 ): Promise<CreateReviewFormState> {
-  console.log("Test Test");
-
   const result = createReviewSchema.safeParse({
     description: formData.get("description"),
     rating: Number(formData.get("rating")),
@@ -47,13 +46,39 @@ export async function createReview(
   console.log("Result Data:", result.data);
 
   const session = await auth();
+
   if (!session || !session.user || !session.user.id) {
     return {
       errors: { _form: ["You must be signed in to create a review."] },
     };
   }
-
   console.log("Session:", session);
+
+  const book = await db.book.findUnique({
+    where: {
+      id: result.data.bookId,
+    },
+  });
+
+  if (!book) {
+    return { errors: { _form: ["Book not found."] } };
+  }
+
+  // Check if a review already exists for this user and book
+  const existingReview = await db.review.findUnique({
+    where: {
+      userId_bookId: {
+        userId: session.user.id,
+        bookId: result.data.bookId,
+      },
+    },
+  });
+
+  if (existingReview) {
+    return {
+      errors: { _form: ["You have already reviewed this book."] },
+    };
+  }
 
   let review: Review;
   try {
@@ -73,7 +98,7 @@ export async function createReview(
     }
     return { errors: { _form: ["Failed to create review."] } };
   }
-  console.log("👍🏻 review");
-  revalidatePath(paths.bookShow(review.bookId));
-  redirect(paths.reviewShow(review.bookId, review.id));
+  console.log("👍🏻 review successful");
+  revalidatePath(paths.bookShowPath(review.bookId));
+  redirect(paths.bookShowPath(review.bookId));
 }

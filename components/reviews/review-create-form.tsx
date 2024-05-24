@@ -5,11 +5,24 @@ import FormButton from "@/common/form-button";
 import { useFormState } from "react-dom";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "../ui/button";
+import Link from "next/link";
+
+// interface ReviewCreateFormProps {
+//   bookId: string;
+// }
 
 export default function ReviewCreateForm() {
   const [formState, action] = useFormState(actions.createReview, {
     errors: {},
   });
+
+  // Grab the book id from the url
+  const bookIdUrl = window.location.pathname;
+  const bookIdTest = bookIdUrl.split("/")[3];
+  console.log(bookIdTest);
+  const bookId = bookIdTest;
 
   return (
     <form action={action}>
@@ -22,7 +35,7 @@ export default function ReviewCreateForm() {
             type="number"
             min="1"
             max="5"
-            placeholder="Rate this book out of 5."
+            placeholder="Rate this book out of 5"
           />
           <span className="text-red-500">
             {formState.errors.rating?.join(", ")}
@@ -33,15 +46,38 @@ export default function ReviewCreateForm() {
           <Textarea
             id="description"
             name="description"
-            placeholder="Write your review here."
+            placeholder="Write your review here"
           />
           <span className="text-red-500">
             {formState.errors.description?.join(", ")}
           </span>
         </div>
-        <div className="text-red-500">{formState.errors._form?.join(", ")}</div>
+        <div className="grid gap-2">
+          <Label htmlFor="description">book id</Label>
+          <Textarea id="bookId" name="bookId" value={bookIdTest} />
+          <span className="text-red-500">
+            {formState.errors.description?.join(", ")}
+          </span>
+        </div>
+        <span className="text-red-500">
+          {formState.errors._form?.join(", ")}
+        </span>
       </div>
-      <FormButton>Create Review</FormButton>
+      <div className="flex justify-between space-x-4 mt-4">
+        <FormButton>Create Review</FormButton>
+        <Link
+          href={`/bookshelf/books/${bookId}`}
+          className={cn(buttonVariants({ variant: "outline" }))}
+        >
+          Back to Book
+        </Link>
+        <Link
+          href="/bookshelf"
+          className={cn(buttonVariants({ variant: "outline" }))}
+        >
+          Back to Bookshelf
+        </Link>
+      </div>
     </form>
   );
 }

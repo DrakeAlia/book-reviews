@@ -16,7 +16,9 @@ export default function ReviewLayout({ children }: ReviewLayoutProps) {
     <>
       <div className="space-y-6 p-10 pb-16 md:block">
         <div className="space-y-0.5">
-          <h2 className="text-2xl font-bold tracking-tight">Review for Book</h2>
+          <h2 className="text-2xl font-bold tracking-tight">
+            Review for Book {""}
+          </h2>
           <p className="text-muted-foreground">
             Create review for this book and share your thoughts with the world.
           </p>

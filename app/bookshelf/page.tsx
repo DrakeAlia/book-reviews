@@ -19,7 +19,8 @@ export default async function BookshelfPage() {
     <>
       <PageHeader>
         <PageHeaderHeading className="hidden md:block">
-          Here&apos;s the BookShelf
+          Here&apos;s the{" "}
+          <span className="text-primary font-bold">Bookshelf</span>
         </PageHeaderHeading>
         <PageHeaderHeading className="md:hidden">BookShelf</PageHeaderHeading>
         <PageHeaderDescription>
