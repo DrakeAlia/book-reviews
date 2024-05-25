@@ -30,7 +30,7 @@ export default async function BookShow({ bookId }: BookShowProps) {
 
   return (
     <div className="container mx-auto p-6">
-      <div className="bg-yellow shadow-lg rounded-lg p-4 lg:p-8">
+      <div className="rounded-lg p-4">
         <div className="mt-4 lg:mt-0 lg:ml-4">
           <h1 className="text-4xl font-bold mb-2">
             <span className="text-primary font-bold">{book.title}</span>
@@ -39,7 +39,7 @@ export default async function BookShow({ bookId }: BookShowProps) {
             Author:
             <span className="text-primary font-bold"> {book.author}</span>
           </p>
-          <p className="text-md mb-3 font-medium ">
+          <p className="text-md mb-3 font-bold ">
             Genre:
             <span className="text-primary font-bold"> {book.genre}</span>
           </p>
@@ -48,7 +48,7 @@ export default async function BookShow({ bookId }: BookShowProps) {
           <ReviewShow bookId={bookId} />
         </div> */}
         <div>
-          <ReviewList  />
+          <ReviewList bookId={bookId} />
         </div>
       </div>
       <div className="flex justify-center space-x-4 mt-4">
