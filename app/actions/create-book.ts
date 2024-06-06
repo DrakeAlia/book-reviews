@@ -18,6 +18,10 @@ const createBookSchema = z.object({
     .min(2, "Author's name must be at least 2 characters.")
     .max(30, "Author's name must not be longer than 30 characters."),
   genre: z.string().min(1, "Genre must be selected."),
+  description: z
+    .string()
+    .min(10, "Description must be at least 10 characters.")
+    .max(1000, "Description must not be longer than 1000 characters."),
 });
 
 interface CreateBookFormState {
@@ -25,6 +29,7 @@ interface CreateBookFormState {
     title?: string[];
     author?: string[];
     genre?: string[];
+    description?: string[];
     _form?: string[];
   };
 }
@@ -37,6 +42,7 @@ export async function createBook(
     title: formData.get("title"),
     author: formData.get("author"),
     genre: formData.get("genre"),
+    description: formData.get("description"),
   });
 
   if (!result.success) {
@@ -57,6 +63,7 @@ export async function createBook(
         title: result.data.title,
         author: result.data.author,
         genre: result.data.genre,
+        description: result.data.description,
         userId: session.user.id,
       },
     });

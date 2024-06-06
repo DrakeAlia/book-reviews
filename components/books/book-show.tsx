@@ -4,10 +4,11 @@ import { notFound } from "next/navigation";
 import * as React from "react";
 
 import { Button, buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
+import ReviewShowLoading from "@/components/reviews/review-show-loading";
+import { Suspense } from "react";
+import Link from "next/link";
 import ReviewList from "../reviews/review-list";
-// import ReviewShow from "../reviews/review-show";
 
 interface BookShowProps {
   bookId: string;
@@ -43,12 +44,16 @@ export default async function BookShow({ bookId }: BookShowProps) {
             Genre:
             <span className="text-primary font-bold"> {book.genre}</span>
           </p>
+          <p className="text-md mb-3 font-bold ">
+            Description:
+            <span className="text-primary font-bold"> {book.description}</span>
+          </p>
         </div>
-        {/* <div>
-          <ReviewShow bookId={bookId} />
-        </div> */}
         <div>
-          <ReviewList bookId={bookId} />
+          <h2 className="text-2xl font-bold mt-8">Reviews for {book.title}</h2>
+          <Suspense fallback={<ReviewShowLoading />}>
+            <ReviewList bookId={bookId} />
+          </Suspense>
         </div>
       </div>
       <div className="flex justify-center space-x-4 mt-4">

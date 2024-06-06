@@ -67,6 +67,17 @@ export default function BookCreateForm() {
             {formState?.errors.author?.join(", ")}
           </span>
         </div>
+        <div className="grid gap-2">
+          <Label htmlFor="description">Description</Label>
+          <Input
+            id="description"
+            name="description"
+            placeholder="Description of the book"
+          />
+          <span className="text-red-500">
+            {formState?.errors.description?.join(", ")}
+          </span>
+        </div>
         <div className="text-red-500">
           {formState?.errors._form?.join(", ")}
         </div>
