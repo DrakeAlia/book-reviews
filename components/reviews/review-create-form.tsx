@@ -8,7 +8,8 @@ import { Textarea } from "../ui/textarea";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useState } from "react";
+import StarRating from "../ui/star-rating";
 
 interface ReviewCreateFormProps {
   bookId: string;
@@ -19,6 +20,8 @@ export default function ReviewCreateForm({ bookId }: ReviewCreateFormProps) {
     errors: {},
   });
 
+  const [rating, setRating] = useState(0);
+
   console.log("bookId from prop:", bookId);
 
   // <div>{bookId ? <ReviewCreateForm /> : <div>No book ID found</div>}</div>;
@@ -28,14 +31,7 @@ export default function ReviewCreateForm({ bookId }: ReviewCreateFormProps) {
       <div className="grid gap-4 py-4">
         <div className="grid gap-2">
           <Label htmlFor="rating">Rating</Label>
-          <input
-            id="rating"
-            name="rating"
-            type="number"
-            min="1"
-            max="5"
-            placeholder="Rate this book out of 5"
-          />
+          <StarRating rating={rating} onRatingChange={setRating} />
           <span className="text-red-500">
             {formState.errors.rating?.join(", ")}
           </span>
@@ -55,6 +51,7 @@ export default function ReviewCreateForm({ bookId }: ReviewCreateFormProps) {
           {formState.errors._form?.join(", ")}
         </span>
       </div>
+      <input type="hidden" name="rating" value={rating} />
       <input type="hidden" name="bookId" value={bookId ?? ""} />
       <div className="flex justify-between space-x-4 mt-4">
         <FormButton>Create Review</FormButton>

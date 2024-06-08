@@ -15,7 +15,7 @@ const createReviewSchema = z.object({
     .string()
     .min(5, "Review must be at least 10 characters before submitting")
     .max(1000, "Review must not be longer than 1000 characters."),
-  bookId: z.string(), // Assuming bookId is a string ID
+  bookId: z.string(),
 });
 
 interface CreateReviewFormState {

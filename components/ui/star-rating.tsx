@@ -1,3 +1,5 @@
+"use client";
+
 interface StarRatingProps {
   rating: number;
   onRatingChange: (rating: number) => void;
