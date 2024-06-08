@@ -8,7 +8,6 @@ export const metadata: Metadata = {
 
 interface ReviewLayoutProps {
   children: React.ReactNode;
-  bookId: string;
 }
 
 export default function ReviewLayout({ children }: ReviewLayoutProps) {

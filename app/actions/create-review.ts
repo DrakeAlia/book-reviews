@@ -32,7 +32,7 @@ export async function createReview(
   formData: FormData
   // bookId: string
 ): Promise<CreateReviewFormState> {
-  console.log("Form Data:", Object.fromEntries(formData));
+  // console.log("Form Data:", Object.fromEntries(formData));
 
   const result = createReviewSchema.safeParse({
     description: formData.get("description"),
@@ -45,7 +45,7 @@ export async function createReview(
     return { errors: result.error.flatten().fieldErrors };
   }
 
-  console.log("Parsed Form Data:", result.data);
+  // console.log("Parsed Form Data:", result.data);
 
   const session = await auth();
 
@@ -54,7 +54,7 @@ export async function createReview(
       errors: { _form: ["You must be signed in to create a review."] },
     };
   }
-  console.log("Session:", session);
+  // console.log("Session:", session);
 
   const book = await db.book.findUnique({
     where: {
