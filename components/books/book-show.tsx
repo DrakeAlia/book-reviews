@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import * as React from "react";
 
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import ReviewShowLoading from "@/components/reviews/review-show-loading";
 import { Suspense } from "react";
@@ -50,9 +50,7 @@ export default async function BookShow({ bookId }: BookShowProps) {
           </p>
         </div>
         <div>
-          <h2 className="text-2xl font-bold mt-8 underline mb-8">
-            Reviews:
-          </h2>
+          <h2 className="text-2xl font-bold mt-8 underline mb-8">Reviews:</h2>
           <Suspense fallback={<ReviewShowLoading />}>
             <ReviewList bookId={bookId} />
           </Suspense>

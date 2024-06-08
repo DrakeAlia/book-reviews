@@ -3,6 +3,7 @@
 interface StarRatingProps {
   rating: number;
   onRatingChange: (rating: number) => void;
+  readonly?: boolean;
 }
 
 const StarRating: React.FC<StarRatingProps> = ({ rating, onRatingChange }) => {
