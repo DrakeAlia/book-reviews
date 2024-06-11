@@ -13,7 +13,11 @@ import { buttonVariants } from "@/components/ui/button";
 
 // This is the Bookshelf page. It displays a list of books that have been reviewed.
 export default async function BookshelfPage() {
-  const books = await db.book.findMany();
+  const books = await db.book.findMany({
+    include: {
+      reviews: true,
+    },
+  });
 
   return (
     <>

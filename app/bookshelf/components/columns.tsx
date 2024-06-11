@@ -97,6 +97,34 @@ export const columns: ColumnDef<Book>[] = [
     },
   },
   {
+    id: "reviewCount",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Reviews" />
+    ),
+    cell: ({ row }) => {
+      interface Book {
+        id: string;
+        title: string;
+        author: string;
+        genre: string;
+        description: string | null;
+        createdAt: Date;
+        updatedAt: Date;
+        userId: string;
+        reviews?: any[]; // Add the reviews property with the appropriate type
+      }
+      const reviewCount = (row.original as Book).reviews?.length || 0;
+      return (
+        <div className="flex items-center space-x-2">
+          {/* <Link href={`/bookshelf/books/${row.original.id}`}>
+            <span className="font-medium">{reviewCount}</span>
+          </Link> */}
+          <span>{reviewCount}</span>
+        </div>
+      );
+    },
+  },
+  {
     id: "actions",
     cell: ({ row }) => <DataTableRowActions row={row} />,
   },
