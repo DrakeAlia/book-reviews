@@ -46,9 +46,7 @@ export default function SiteHeaderAuth() {
       <>
         <Dialog>
           <DialogTrigger asChild>
-            <Button type="submit">
-              Sign In
-            </Button>
+            <Button type="submit">Sign In</Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
